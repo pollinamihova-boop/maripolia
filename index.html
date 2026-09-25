@@ -831,6 +831,117 @@ body.landing-on header, body.landing-on .wrap{display:none!important}
   .wsprev{padding:10px}
 }
 @media (max-width:440px){ .wspaper{zoom:.34} }
+
+/* ============ 1. СВЪРЖИ ПО РЕД ============ */
+.trail{position:relative;width:100%;aspect-ratio:4/3;max-width:560px;margin:0 auto;
+  background:var(--surface-2);border-radius:16px}
+.tline{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.tdot{position:absolute;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;
+  border:3px solid var(--rule);background:var(--surface);color:var(--text);cursor:pointer;
+  font:600 19px/1 "Literata",serif;display:grid;place-items:center;touch-action:manipulation;padding:0}
+.tdot[data-state="ok"]{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--surface));color:var(--ok)}
+.tdot[data-state="no"]{border-color:var(--red);background:color-mix(in srgb,var(--red) 16%,var(--surface))}
+.tdot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.trailq{text-align:center;font-size:15.5px;color:var(--muted);margin:16px 0 0}
+.trailq b{color:var(--text)}
+
+/* ============ 2. КАЖИ ЦВЕТА ============ */
+.stroopword{text-align:center;font:800 clamp(38px,11vw,68px)/1.1 "Nunito","Commissioner",sans-serif;
+  letter-spacing:.02em;margin:10px 0 6px;background:var(--surface-2);border-radius:16px;padding:22px 12px}
+.swatches{gap:14px}
+.swatch{width:72px;height:72px;border-radius:16px;border:3px solid rgba(0,0,0,.18);
+  cursor:pointer;touch-action:manipulation;padding:0}
+.swatch[data-state="ok"]{box-shadow:0 0 0 4px var(--ok)}
+.swatch[data-state="no"]{box-shadow:0 0 0 4px var(--red)}
+.swatch:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.stroopdone{text-align:center;padding:26px 10px}
+
+/* ============ 3. КОШНИЦИ ============ */
+.binpool{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;min-height:70px;
+  background:var(--surface-2);border-radius:14px;padding:12px;margin-bottom:18px}
+.bins{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.bin{flex:1 1 200px;min-width:170px;border:3px dashed var(--rule);border-radius:16px;
+  padding:10px;background:var(--surface);cursor:pointer;min-height:130px}
+.bin:hover{border-color:var(--accent)}
+.binlbl{display:block;text-align:center;font-weight:600;font-size:15px;margin-bottom:8px;color:var(--ink)}
+.binbody{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.bin .item.sm,.binpool .item.sm{width:84px}
+
+/* ============ 4. СЪЩОТО ЛИ Е ============ */
+.nbkbox{max-width:190px;margin:8px auto 4px;background:var(--surface-2);border-radius:16px;padding:16px}
+.nbkbox svg,.nbkbox img{width:100%;height:auto;display:block}
+
+/* ============ 5. ЧАСОВНИКЪТ ============ */
+.seg.cshand{justify-content:center;margin-bottom:14px}
+.clockbox{max-width:330px;margin:0 auto}
+.clockbox svg{width:100%;height:auto;display:block;cursor:pointer;touch-action:manipulation}
+
+/* ============ 6. СГЛОБИ ДУМАТА ============ */
+.wbpic{max-width:150px;margin:0 auto 14px}
+.wbpic svg,.wbpic img{width:100%;height:auto;display:block}
+.wbline{min-height:74px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;
+  background:var(--surface-2);border-radius:14px;padding:12px;margin-bottom:16px}
+.wbbank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;min-height:60px}
+.wbpart{font:600 26px/1 "Literata",serif;padding:12px 16px;min-height:var(--tap);
+  border:3px solid var(--rule);border-radius:12px;background:var(--surface);color:var(--text);
+  cursor:pointer;touch-action:manipulation;white-space:pre}
+.wbpart.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--surface))}
+.wbpart:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ============ 7. ЧИСЛОВАТА ЛИНИЯ ============ */
+.nlbox{position:relative;height:118px;margin:26px 8px 0;cursor:pointer;touch-action:manipulation}
+.nlline{position:absolute;left:0;right:0;top:54px;height:5px;border-radius:3px;background:var(--rule)}
+.nltick{position:absolute;top:44px;transform:translateX(-50%);text-align:center}
+.nltick i{display:block;width:2px;height:24px;background:var(--rule);margin:0 auto}
+.nltick em{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:5px;
+  font-variant-numeric:tabular-nums}
+.nlmark{position:absolute;top:10px;transform:translateX(-50%);text-align:center}
+.nlmark b{display:block;font:600 17px/1 "Literata",serif;color:var(--ok);margin-bottom:4px;
+  background:var(--surface);padding:3px 7px;border-radius:8px;border:2px solid var(--ok)}
+.nlmark::after{content:"";display:block;width:0;height:0;margin:0 auto;
+  border:8px solid transparent;border-top-color:var(--ok)}
+
+/* ============ 8. ВЕЗНАТА ============ */
+.scalebox{max-width:520px;margin:0 auto}
+.scalebar{width:100%;height:auto;display:block;margin-bottom:6px}
+.pans{display:flex;gap:12px}
+.pan{flex:1;border:3px solid var(--rule);border-radius:14px;padding:10px;background:var(--surface);
+  text-align:center}
+.panlbl{display:block;font-size:13.5px;color:var(--muted);margin-bottom:8px}
+.panbody{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;min-height:56px;align-items:center}
+.pansum{display:block;margin-top:8px;font:600 16px/1 "Literata",serif;color:var(--ink)}
+.wbank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.wblk{font:600 19px/1 "Literata",serif;min-width:52px;height:52px;padding:0 12px;
+  border:3px solid var(--rule);border-radius:11px;background:var(--surface-2);color:var(--text);
+  cursor:pointer;touch-action:manipulation}
+.wblk.fix{border-style:solid;border-color:var(--ink);opacity:1;cursor:default;
+  background:color-mix(in srgb,var(--ink) 10%,var(--surface))}
+.wblk:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ============ 9. НАМЕРИ РАЗЛИКИТЕ ============ */
+.spotwrap{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.spotpane{flex:1 1 230px;min-width:200px;background:var(--surface-2);border-radius:14px;padding:10px}
+.spotlbl{display:block;text-align:center;font-size:13.5px;color:var(--muted);margin-bottom:8px}
+.spotgrid{display:grid;gap:6px}
+.spotcell{background:var(--surface);border:2px solid transparent;border-radius:10px;padding:5px;
+  display:grid;place-items:center;aspect-ratio:1}
+.spotcell svg,.spotcell img{width:100%;height:auto;display:block;max-width:60px}
+.spotcell.tap{cursor:pointer;touch-action:manipulation}
+.spotcell.tap[data-state="sel"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface))}
+.spotcell.tap[data-state="ok"]{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,var(--surface))}
+.spotcell.tap[data-state="no"]{border-color:var(--red);background:color-mix(in srgb,var(--red) 13%,var(--surface))}
+
+@media (max-width:520px){
+  .tdot{width:44px;height:44px;font-size:16px}
+  .swatch{width:62px;height:62px}
+  .wbpart{font-size:22px;padding:10px 13px}
+  .spotpane{flex:1 1 100%}
+}
+
+.hdot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;
+  vertical-align:-1px}
+.hdot.hh{background:var(--ink)}
+.hdot.hm{background:var(--red)}
 </style>
 
 <header>
@@ -8853,6 +8964,630 @@ snd("sc-snd-6","Бързо и бавно","Промяната","Чуй реди�
 ]);
 })();
 
+/* =================== НОВИ ИНТЕРАКТИВНИ МЕХАНИКИ ===================
+   Девет механики, които платформата няма: свързване по ред, Струп,
+   сортиране в кошници, „същото ли е“, нагласяване на часовник,
+   сглобяване на дума, числова линия, везна и намиране на разлики.
+=================================================================== */
+(function(){
+
+/* --- повторима случайност по id на задачата --- */
+const seedOf = s => { let h = 7; for(const c of s) h = (h*31 + c.charCodeAt(0)) >>> 0; return h||1 };
+const rngOf = s => { let x = seedOf(s); return () => ((x = (x*1664525 + 1013904223) >>> 0) / 4294967296) };
+const shufR = (r,a) => { a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1));
+  [a[i],a[j]]=[a[j],a[i]] } return a };
+const clamp = (v,a,b) => v<a?a:v>b?b:v;
+const live = () => !!document.getElementById("stage");
+
+/* =================== 1. СВЪРЖИ ПО РЕД =================== */
+R.trail = e => {
+  const L = e.labels, n = L.length, r = rngOf(e.id);
+  const cols = Math.ceil(Math.sqrt(n*1.4)), rows = Math.ceil(n/cols);
+  const cells = shufR(r, Array.from({length:cols*rows},(_,i)=>i)).slice(0,n);
+  const pos = cells.map(ci => {
+    const c = ci%cols, rw = Math.floor(ci/cols);
+    return { x: clamp((c+0.5)/cols*100 + (r()-0.5)*(58/cols), 9, 91),
+             y: clamp((rw+0.5)/rows*100 + (r()-0.5)*(52/rows), 10, 90) };
+  });
+  let at = 0, wrong = -1;
+  const draw = () => {
+    if(!live()) return;
+    const line = pos.slice(0, Math.max(at,1)).map(p=>`${p.x},${p.y}`).join(" ");
+    stage().innerHTML = `<div class="trail">
+      <svg class="tline" viewBox="0 0 100 100" preserveAspectRatio="none">
+        ${at>1?`<polyline points="${line}" fill="none" stroke="var(--ok)" stroke-width="0.8"
+          stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`:""}</svg>
+      ${L.map((l,i)=>`<button class="tdot" type="button" data-i="${i}"
+        style="left:${pos[i].x}%;top:${pos[i].y}%"
+        ${i<at?'data-state="ok"':i===wrong?'data-state="no"':''}>${l}</button>`).join("")}
+    </div><p class="trailq">Следващото: <b>${at<n?L[at]:"готово"}</b></p>`;
+    stage().querySelectorAll(".tdot").forEach(b => b.onclick = () => {
+      const i = +b.dataset.i;
+      if(i === at){ at++; wrong = -1;
+        if(at === n){ draw(); fb("Браво! Цялата верига е свързана.","ok"); mark(e.id) }
+        else { draw(); fb("") }
+      } else { wrong = i; draw(); fb(`Не е този. Търси ${L[at]}.`,"no") }
+    });
+  };
+  draw();
+  ctl([{t:"Отначало", g:1, fn:()=>{ at=0; wrong=-1; draw(); fb("") }}]);
+};
+
+/* =================== 2. КАЖИ ЦВЕТА (Струп) =================== */
+const SWATCH = {red:"#E8502F", blue:"#2E7CC4", green:"#3E9E5F", yellow:"#E0AC1E", purple:"#7E57C2", brown:"#8A5A34"};
+const CNAME  = {red:"ЧЕРВЕНО", blue:"СИНЬО", green:"ЗЕЛЕНО", yellow:"ЖЪЛТО", purple:"ЛИЛАВО", brown:"КАФЯВО"};
+R.stroop = e => {
+  let i = 0, good = 0, lock = false;
+  const n = e.rounds.length;
+  const draw = () => {
+    if(!live()) return;
+    if(i >= n){
+      stage().innerHTML = `<div class="stroopdone"><p class="memo-q">Готово!</p>
+        <p class="trailq">Позна цвета <b>${good}</b> от <b>${n}</b> пъти.</p></div>`;
+      good >= n-1 ? (fb("Отлично внимание!","ok"), mark(e.id))
+                  : fb("Опитай пак — гледай цвета, не думата.","no");
+      return;
+    }
+    const q = e.rounds[i];
+    stage().innerHTML = `<p class="memo-cap">Дума ${i+1} от ${n}</p>
+      <div class="stroopword" style="color:${SWATCH[q.c]}">${CNAME[q.w]}</div>
+      <p class="memo-q">С какъв ЦВЯТ е написана думата?</p>
+      <div class="row swatches">${e.opts.map(k=>
+        `<button class="swatch" type="button" data-k="${k}" style="background:${SWATCH[k]}"
+          aria-label="${CNAME[k].toLowerCase()}"></button>`).join("")}</div>`;
+    stage().querySelectorAll(".swatch").forEach(b => b.onclick = () => {
+      if(lock) return; lock = true;
+      const ok = b.dataset.k === q.c;
+      b.dataset.state = ok ? "ok" : "no";
+      if(ok) good++;
+      fb(ok ? "Да!" : `Беше ${CNAME[q.c].toLowerCase()}.`, ok ? "ok" : "no");
+      setTimeout(()=>{ lock=false; i++; draw() }, ok ? 420 : 900);
+    });
+  };
+  draw();
+  ctl([{t:"Отначало", g:1, fn:()=>{ i=0; good=0; lock=false; draw(); fb("") }}]);
+};
+
+/* =================== 3. ПОДРЕДИ В КОШНИЦИТЕ =================== */
+R.sortbin = e => {
+  let put = e.items.map(()=>null), sel = null;
+  const art = it => it.k && ART[it.k] ? ART[it.k]() : "";
+  const draw = () => {
+    if(!live()) return;
+    const free = e.items.map((it,i)=>i).filter(i=>put[i]===null);
+    stage().innerHTML = `
+      <div class="binpool">${free.length
+        ? free.map(i=>`<button class="item sm" type="button" data-p="${i}" ${sel===i?'data-state="sel"':''}>
+            ${art(e.items[i])}${e.items[i].l?`<span class="lbl">${e.items[i].l}</span>`:""}</button>`).join("")
+        : `<p class="mut" style="margin:6px">Всичко е подредено. Натисни „Провери“.</p>`}</div>
+      <div class="bins">${e.bins.map((b,bi)=>`<div class="bin" data-b="${bi}">
+        <span class="binlbl">${b.l}</span>
+        <div class="binbody">${e.items.map((it,i)=>put[i]===bi
+          ? `<button class="item sm" type="button" data-p="${i}">
+              ${art(it)}${it.l?`<span class="lbl">${it.l}</span>`:""}</button>` : "").join("")}</div>
+      </div>`).join("")}</div>`;
+    stage().querySelectorAll("[data-p]").forEach(b => b.onclick = ev => {
+      ev.stopPropagation();
+      const i = +b.dataset.p;
+      if(put[i] !== null){ put[i] = null; sel = null; draw(); fb(""); return }
+      sel = sel === i ? null : i; draw();
+    });
+    stage().querySelectorAll(".bin").forEach(d => d.onclick = () => {
+      if(sel === null){ fb("Първо докосни картинка, после кошницата."); return }
+      put[sel] = +d.dataset.b; sel = null; draw(); fb("");
+    });
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      if(put.some(v=>v===null)){ fb("Има още неподредени.","no"); return }
+      const bad = e.items.filter((it,i)=>put[i]!==it.b).length;
+      stage().querySelectorAll(".bin .item").forEach(b=>{
+        const i = +b.dataset.p; b.dataset.state = put[i]===e.items[i].b ? "ok" : "no" });
+      bad ? fb(`${bad} ${bad===1?"е":"са"} на грешно място.`,"no")
+          : (fb("Точно! Всичко е по местата си.","ok"), mark(e.id));
+    }},
+    {t:"Отначало", g:1, fn:()=>{ put = e.items.map(()=>null); sel=null; draw(); fb("") }}]);
+};
+
+/* =================== 4. СЪЩОТО ЛИ Е =================== */
+R.nback = e => {
+  let i = 0, good = 0, shown = false;
+  const n = e.seq.length;
+  const draw = () => {
+    if(!live()) return;
+    if(i >= n){
+      stage().innerHTML = `<div class="stroopdone"><p class="memo-q">Готово!</p>
+        <p class="trailq">Позна <b>${good}</b> от <b>${n-1}</b>.</p></div>`;
+      good >= n-2 ? (fb("Много добра работна памет!","ok"), mark(e.id))
+                  : fb("Опитай пак — гледай внимателно всяка картинка.","no");
+      return;
+    }
+    stage().innerHTML = `<p class="memo-cap">Картинка ${i+1} от ${n}</p>
+      <div class="nbkbox">${ART[e.seq[i]] ? ART[e.seq[i]]() : ""}</div>
+      ${i === 0
+        ? `<p class="memo-q">Запомни я и продължи.</p>
+           <div class="row"><button class="btn" type="button" id="nbgo">Продължи</button></div>`
+        : `<p class="memo-q">Същата ли е като ПРЕДИШНАТА?</p>
+           <div class="row"><button class="item" type="button" data-v="1"><span class="lbl">същата</span></button>
+             <button class="item" type="button" data-v="0"><span class="lbl">различна</span></button></div>`}`;
+    const go = document.getElementById("nbgo");
+    if(go){ go.onclick = () => { i++; draw(); fb("") }; return }
+    stage().querySelectorAll("[data-v]").forEach(b => b.onclick = () => {
+      const same = e.seq[i] === e.seq[i-1];
+      const ok = (b.dataset.v === "1") === same;
+      if(ok) good++;
+      b.dataset.state = ok ? "ok" : "no";
+      fb(ok ? "Да!" : (same ? "Беше същата." : "Беше различна."), ok ? "ok" : "no");
+      setTimeout(()=>{ i++; draw() }, ok ? 450 : 900);
+    });
+  };
+  draw();
+  ctl([{t:"Отначало", g:1, fn:()=>{ i=0; good=0; draw(); fb("") }}]);
+};
+
+/* =================== 5. НАГЛАСИ ЧАСОВНИКА =================== */
+R.clockset = e => {
+  let h = 12, m = 0, hand = "h";
+  const two = v => String(v).padStart(2,"0");
+  const draw = () => {
+    if(!live()) return;
+    const ha = (h%12)*30 + m*0.5 - 90, ma = m*6 - 90;
+    const R2 = Math.PI/180;
+    const hx = 50 + 24*Math.cos(ha*R2), hy = 50 + 24*Math.sin(ha*R2);
+    const mx = 50 + 35*Math.cos(ma*R2), my = 50 + 35*Math.sin(ma*R2);
+    stage().innerHTML = `<p class="memo-q">Нагласи часовника на <b>${e.h}:${two(e.m)}</b></p>
+      <div class="seg cshand">
+        <button type="button" data-hand="h" aria-pressed="${hand==="h"}"><i class="hdot hh"></i>Часовата (дебелата)</button>
+        <button type="button" data-hand="m" aria-pressed="${hand==="m"}"><i class="hdot hm"></i>Минутната (тънката)</button>
+      </div>
+      <div class="clockbox"><svg viewBox="0 0 100 100" id="csvg">
+        <circle cx="50" cy="50" r="46" fill="var(--surface)" stroke="var(--rule)" stroke-width="2.4"/>
+        ${Array.from({length:12},(_,k)=>{const a=(k*30-90)*R2;
+          return `<text x="${50+38*Math.cos(a)}" y="${50+38*Math.sin(a)+3.4}" font-size="8.4"
+            text-anchor="middle" fill="var(--muted)" font-family="Literata,serif">${k===0?12:k}</text>`}).join("")}
+        ${Array.from({length:60},(_,k)=>{const a=(k*6-90)*R2, r1=k%5?43.5:42;
+          return `<line x1="${50+r1*Math.cos(a)}" y1="${50+r1*Math.sin(a)}"
+            x2="${50+45*Math.cos(a)}" y2="${50+45*Math.sin(a)}"
+            stroke="var(--rule)" stroke-width="${k%5?0.6:1.4}"/>`}).join("")}
+        <line x1="50" y1="50" x2="${hx}" y2="${hy}" stroke="var(--ink)" stroke-width="4.4" stroke-linecap="round"/>
+        <line x1="50" y1="50" x2="${mx}" y2="${my}" stroke="var(--red)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="2.6" fill="var(--ink)"/>
+      </svg></div>
+      <p class="trailq">Сега показва <b>${h}:${two(m)}</b>. Докосни циферблата, за да местиш
+        ${hand==="h"?"часовата":"минутната"} стрелка.</p>`;
+    stage().querySelectorAll("[data-hand]").forEach(b => b.onclick = () => { hand = b.dataset.hand; draw() });
+    const sv = document.getElementById("csvg");
+    const set = ev => {
+      const r = sv.getBoundingClientRect();
+      const p = ev.touches ? ev.touches[0] : ev;
+      const x = (p.clientX - r.left)/r.width*100 - 50, y = (p.clientY - r.top)/r.height*100 - 50;
+      let a = Math.atan2(y,x)*180/Math.PI + 90; if(a<0) a += 360;
+      if(hand === "h"){ h = Math.round(a/30) % 12; if(h===0) h = 12 }
+      else { m = (Math.round(a/6) % 60); }
+      draw(); fb("");
+    };
+    sv.onclick = set;
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      (h === e.h && m === e.m) ? (fb("Точно така!","ok"), mark(e.id))
+        : fb(`Показва ${h}:${two(m)}, а трябва ${e.h}:${two(e.m)}.`,"no") }},
+    {t:"Отначало", g:1, fn:()=>{ h=12; m=0; hand="h"; draw(); fb("") }}]);
+};
+
+/* =================== 6. СГЛОБИ ДУМАТА =================== */
+R.wordbuild = e => {
+  const r = rngOf(e.id);
+  let bank = shufR(r, e.parts.map((p,i)=>({p,i})));
+  if(bank.every((b,i)=>b.i===i)) bank.reverse();
+  let built = [];
+  const draw = () => {
+    if(!live()) return;
+    stage().innerHTML =
+      (e.pic && ART[e.pic] ? `<div class="wbpic">${ART[e.pic]()}</div>` : "") +
+      `<div class="wbline">${built.length
+        ? built.map((b,j)=>`<button class="wbpart on" type="button" data-j="${j}">${b.p}</button>`).join("")
+        : `<span class="mut">Докосвай частите отдолу по ред.</span>`}</div>
+       <div class="wbbank">${bank.map((b,j)=>`<button class="wbpart" type="button" data-b="${j}">${b.p}</button>`).join("")
+         || `<span class="mut">&nbsp;</span>`}</div>`;
+    stage().querySelectorAll("[data-b]").forEach(n => n.onclick = () => {
+      built.push(bank.splice(+n.dataset.b,1)[0]); draw(); fb("") });
+    stage().querySelectorAll("[data-j]").forEach(n => n.onclick = () => {
+      bank.push(built.splice(+n.dataset.j,1)[0]); draw(); fb("") });
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      if(bank.length){ fb("Има още части долу.","no"); return }
+      const word = built.map(b=>b.p).join("");
+      word === e.parts.join("")
+        ? (fb(`Точно: ${word}`,"ok"), mark(e.id))
+        : fb(`Получи се „${word}“. Опитай пак.`,"no") }},
+    {t:"Отначало", g:1, fn:()=>{ bank = shufR(rngOf(e.id+built.length), e.parts.map((p,i)=>({p,i})));
+      built=[]; draw(); fb("") }}]);
+};
+
+/* =================== 7. ЧИСЛОВАТА ЛИНИЯ =================== */
+R.numline = e => {
+  let v = null;
+  const max = e.max, step = e.step || 1;
+  const draw = () => {
+    if(!live()) return;
+    const ticks = e.ticks || (max<=20 ? max/2 : max<=100 ? 10 : 10);
+    stage().innerHTML = `<p class="memo-q">Къде стои числото <b>${e.target}</b>?</p>
+      <div class="nlbox" id="nlb">
+        <div class="nlline"></div>
+        ${Array.from({length:ticks+1},(_,k)=>{const val=k*max/ticks;
+          return `<span class="nltick" style="left:${k/ticks*100}%">
+            <i></i><em>${Number.isInteger(val)?val:val.toFixed(0)}</em></span>`}).join("")}
+        ${v!==null?`<span class="nlmark" style="left:${v/max*100}%"><b>${v}</b></span>`:""}
+      </div>
+      <p class="trailq">${v===null?"Докосни линията там, където мислиш, че е числото."
+        :`Избра <b>${v}</b>.`}</p>`;
+    const box = document.getElementById("nlb");
+    box.onclick = ev => {
+      const r = box.getBoundingClientRect();
+      const p = ev.touches ? ev.touches[0] : ev;
+      let x = clamp((p.clientX - r.left)/r.width, 0, 1);
+      v = Math.round(x*max/step)*step;
+      draw(); fb("");
+    };
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      if(v===null){ fb("Първо докосни линията.","no"); return }
+      const d = Math.abs(v - e.target), tol = e.tol ?? Math.max(1, Math.round(max*0.04));
+      d===0 ? (fb("Точно на мястото!","ok"), mark(e.id))
+        : d<=tol ? (fb(`Много близо — ${v}. Приема се.`,"ok"), mark(e.id))
+        : fb(v < e.target ? "Малко по-надясно." : "Малко по-наляво.","no") }},
+    {t:"Отначало", g:1, fn:()=>{ v=null; draw(); fb("") }}]);
+};
+
+/* =================== 8. ВЕЗНАТА =================== */
+R.balance = e => {
+  let right = [], bank = e.bank.slice();
+  const sumL = e.left.reduce((a,b)=>a+b,0);
+  const blk = (w,cls,attr) => `<button class="wblk ${cls}" type="button" ${attr}>${w}</button>`;
+  const draw = () => {
+    if(!live()) return;
+    const sumR = right.reduce((a,b)=>a+b,0);
+    const tilt = clamp((sumR - sumL)*3, -11, 11);
+    stage().innerHTML = `<div class="scalebox">
+      <svg viewBox="0 0 300 40" class="scalebar">
+        <g transform="rotate(${tilt} 150 20)">
+          <line x1="30" y1="20" x2="270" y2="20" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+          <line x1="60" y1="20" x2="60" y2="34" stroke="var(--rule)" stroke-width="3"/>
+          <line x1="240" y1="20" x2="240" y2="34" stroke="var(--rule)" stroke-width="3"/>
+        </g>
+        <path d="M150 20 L138 40 L162 40 Z" fill="var(--ink)"/>
+      </svg>
+      <div class="pans">
+        <div class="pan"><span class="panlbl">лява страна</span>
+          <div class="panbody">${e.left.map(w=>blk(w,"fix","disabled")).join("")}</div>
+          <span class="pansum">${sumL} кг</span></div>
+        <div class="pan"><span class="panlbl">дясна страна</span>
+          <div class="panbody">${right.map((w,i)=>blk(w,"","data-r=\""+i+"\"")).join("")
+            || `<span class="mut">празна</span>`}</div>
+          <span class="pansum">${sumR} кг</span></div>
+      </div>
+      <p class="trailq">Избери тежести, докато двете страни се изравнят.</p>
+      <div class="wbank">${bank.map((w,i)=>blk(w,"","data-w=\""+i+"\"")).join("")}</div>
+    </div>`;
+    stage().querySelectorAll("[data-w]").forEach(b => b.onclick = () => {
+      right.push(bank.splice(+b.dataset.w,1)[0]); draw(); fb("") });
+    stage().querySelectorAll("[data-r]").forEach(b => b.onclick = () => {
+      bank.push(right.splice(+b.dataset.r,1)[0]); draw(); fb("") });
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      const sumR = right.reduce((a,b)=>a+b,0);
+      sumR === sumL ? (fb("Везната е в равновесие!","ok"), mark(e.id))
+        : fb(sumR < sumL ? "Дясната страна е по-лека. Добави още." : "Дясната страна натежа. Махни нещо.","no") }},
+    {t:"Отначало", g:1, fn:()=>{ right=[]; bank=e.bank.slice(); draw(); fb("") }}]);
+};
+
+/* =================== 9. НАМЕРИ РАЗЛИКИТЕ =================== */
+R.spot = e => {
+  let p = new Set();
+  const diffs = e.a.map((k,i)=>k===e.b[i]?-1:i).filter(i=>i>=0);
+  const cell = k => ART[k] ? ART[k]() : "";
+  const draw = () => {
+    if(!live()) return;
+    const cols = e.cols || 4;
+    stage().innerHTML = `<p class="memo-q">Разликите са <b>${diffs.length}</b>. Огради ги в ДЯСНАТА картина.</p>
+      <div class="spotwrap">
+        <div class="spotpane"><span class="spotlbl">лявата</span>
+          <div class="spotgrid" style="grid-template-columns:repeat(${cols},1fr)">
+            ${e.a.map(k=>`<span class="spotcell">${cell(k)}</span>`).join("")}</div></div>
+        <div class="spotpane"><span class="spotlbl">дясната</span>
+          <div class="spotgrid" style="grid-template-columns:repeat(${cols},1fr)">
+            ${e.b.map((k,i)=>`<button class="spotcell tap" type="button" data-i="${i}"
+              ${p.has(i)?'data-state="sel"':''}>${cell(k)}</button>`).join("")}</div></div>
+      </div>`;
+    stage().querySelectorAll(".spotcell.tap").forEach(b => b.onclick = () => {
+      const i = +b.dataset.i; p.has(i) ? p.delete(i) : p.add(i); draw(); fb("") });
+  };
+  draw();
+  ctl([
+    {t:"Провери", fn:()=>{
+      const w = new Set(diffs), ok = p.size===w.size && [...p].every(i=>w.has(i));
+      stage().querySelectorAll(".spotcell.tap").forEach((b,i)=>{ if(p.has(i)) b.dataset.state = w.has(i)?"ok":"no" });
+      ok ? (fb("Всички разлики са намерени!","ok"), mark(e.id))
+         : fb(`Намери ${[...p].filter(i=>w.has(i)).length} от ${diffs.length}.`,"no") }},
+    {t:"Отначало", g:1, fn:()=>{ p=new Set(); draw(); fb("") }}]);
+};
+
+/* =================== ЗАДАЧИ =================== */
+const S = "нова задача";
+const mk = (id,t,g,m,title,instr,age,o) => Object.assign(
+  {id, t, g, m, title, instr, hint:o.hint||"", src:S, note:o.note||"", age}, o);
+const num = (a,b) => Array.from({length:b-a+1},(_,i)=>String(a+i));
+const BG  = ["А","Б","В","Г","Д","Е","Ж","З","И","К","Л","М","Н","О","П","Р","С","Т"];
+
+LG.add([
+
+/* ---------- СВЪРЖИ ПО РЕД ---------- */
+mk("gm-tr-1","trail","Внимание","Свържи по ред","Числата до пет",
+ "Докосвай числата по ред — от 1 до 5.","3–4",{labels:num(1,5),
+ note:"Най-простата форма на свързване по ред. Детето държи в главата си само едно число напред."}),
+mk("gm-tr-2","trail","Внимание","Свържи по ред","Числата до осем",
+ "Докосвай числата по ред — от 1 до 8.","4–5",{labels:num(1,8)}),
+mk("gm-tr-3","trail","Внимание","Свържи по ред","Числата до дванайсет",
+ "Докосвай числата по ред — от 1 до 12.","5–6",{labels:num(1,12),
+ note:"Търсенето по цялото поле натоварва зрителното сканиране. Ако детето се губи, нека сочи с пръст."}),
+mk("gm-tr-4","trail","Внимание","Свържи по ред","Числата до шестнайсет",
+ "Докосвай числата по ред — от 1 до 16.","6–7",{labels:num(1,16)}),
+mk("gm-tr-5","trail","Внимание","Буквите по азбучен ред","Азбуката до Е",
+ "Докосвай буквите по азбучен ред — от А до Е.","5–6",{labels:BG.slice(0,6),
+ note:"Изисква стабилен азбучен ред. Ако детето не го знае наизуст, задачата става търсене — кажете азбуката заедно."}),
+mk("gm-tr-6","trail","Внимание","Буквите по азбучен ред","Азбуката до К",
+ "Докосвай буквите по азбучен ред — от А до К.","6–7",{labels:BG.slice(0,9)}),
+mk("gm-tr-7","trail","Концентрация","Ту число, ту буква","Едно и едно",
+ "Докосвай последователно: 1, А, 2, Б, 3, В…","7–8",
+ {labels:["1","А","2","Б","3","В","4","Г","5","Д"],
+  hint:"След число идва буква, след буква — число.",
+  note:"Превключване между две правила — точно това мери класическият тест „свързване на следи“, част Б. Тук е игра, не тест."}),
+mk("gm-tr-8","trail","Концентрация","Ту число, ту буква","По-дългата верига",
+ "Докосвай: 1, А, 2, Б, 3, В… чак до 7 и Ж.","9–10",
+ {labels:["1","А","2","Б","3","В","4","Г","5","Д","6","Е","7","Ж"],
+  note:"Четиринайсет стъпки с превключване на всяка. Грешките в края показват умора, не невъзможност."}),
+mk("gm-tr-9","trail","Концентрация","Обратно броене","Отзад напред",
+ "Докосвай числата обратно — от 10 към 1.","7–8",
+ {labels:num(1,10).reverse(),
+  note:"Обратният ред изисква задържане на редицата наум, а не просто разпознаване."}),
+mk("gm-tr-10","trail","Скорост","Числата през едно","Само четните",
+ "Докосвай четните числа по ред: 2, 4, 6, 8, 10, 12, 14.","9–10",
+ {labels:["2","4","6","8","10","12","14"],
+  note:"Две неща наведнъж: правилото (четни) и редът."}),
+
+/* ---------- КАЖИ ЦВЕТА ---------- */
+mk("gm-st-1","stroop","Концентрация","Кажи цвета","Думите не лъжат",
+ "Гледай с какъв ЦВЯТ е написана думата, а не какво пише.","7–8",
+ {opts:["red","blue","green","yellow"],
+  rounds:[{w:"red",c:"red"},{w:"blue",c:"blue"},{w:"green",c:"green"},
+          {w:"yellow",c:"yellow"},{w:"red",c:"red"},{w:"blue",c:"blue"}],
+  hint:"Тук думата и цветът съвпадат — това е загрявката.",
+  note:"Съгласуваният вариант е загрявка. Направете го преди трудния — така детето усвоява правилото, преди да се появи конфликтът."}),
+mk("gm-st-2","stroop","Концентрация","Кажи цвета","Думите лъжат",
+ "Гледай с какъв ЦВЯТ е написана думата, а не какво пише.","7–8",
+ {opts:["red","blue","green","yellow"],
+  rounds:[{w:"red",c:"blue"},{w:"green",c:"red"},{w:"yellow",c:"green"},
+          {w:"blue",c:"yellow"},{w:"green",c:"blue"},{w:"red",c:"green"}],
+  hint:"Думата ще те тегли. Не ѝ вярвай.",
+  note:"Класически Струп-конфликт. Забавянето е нормално и е самата цел — то показва работата по задържане на автоматичния отговор."}),
+mk("gm-st-3","stroop","Концентрация","Кажи цвета","Осем думи подред",
+ "Гледай само цвета на буквите.","9–10",
+ {opts:["red","blue","green","yellow","purple"],
+  rounds:[{w:"purple",c:"red"},{w:"red",c:"yellow"},{w:"blue",c:"purple"},{w:"yellow",c:"blue"},
+          {w:"green",c:"red"},{w:"red",c:"green"},{w:"purple",c:"yellow"},{w:"blue",c:"green"}],
+  note:"Пет цвята вместо четири и осем повторения — умората се вижда в края."}),
+mk("gm-st-4","stroop","Концентрация","Кажи цвета","Смесени",
+ "Понякога думата и цветът съвпадат, понякога не. Гледай цвета.","9–10",
+ {opts:["red","blue","green","yellow","brown"],
+  rounds:[{w:"red",c:"red"},{w:"blue",c:"brown"},{w:"green",c:"green"},{w:"brown",c:"blue"},
+          {w:"yellow",c:"red"},{w:"red",c:"yellow"},{w:"green",c:"brown"},{w:"brown",c:"green"}],
+  note:"Смесването на съгласувани и конфликтни думи не позволява на детето да „изключи“ четенето — трябва да проверява всеки път."}),
+
+/* ---------- ПОДРЕДИ В КОШНИЦИТЕ ---------- */
+mk("gm-sb-1","sortbin","Логика","Подреди в кошниците","Плодове и зеленчуци",
+ "Сложи всяко нещо в неговата кошница.","4–5",
+ {bins:[{l:"плодове"},{l:"зеленчуци"}],
+  items:[{k:"apple",b:0},{k:"carrot",b:1},{k:"pear",b:0},{k:"tomato",b:1},
+         {k:"banana",b:0},{k:"cucumber",b:1},{k:"grapes",b:0},{k:"onion",b:1}],
+  note:"Доматът е плод ботанически, но в кухнята е зеленчук. Ако детето възрази — то е право; обсъдете двете гледни точки."}),
+mk("gm-sb-2","sortbin","Логика","Подреди в кошниците","Домашни и диви",
+ "Сложи всяко животно при неговите.","4–5",
+ {bins:[{l:"в двора"},{l:"в гората"}],
+  items:[{k:"cow",b:0},{k:"bear",b:1},{k:"hen",b:0},{k:"fox",b:1},
+         {k:"pig",b:0},{k:"wolf",b:1},{k:"goat",b:0},{k:"deer",b:1}]}),
+mk("gm-sb-3","sortbin","Логика","Подреди в кошниците","Голямо и малко",
+ "Големите животни в едната кошница, малките — в другата.","3–4",
+ {bins:[{l:"голямо"},{l:"малко"}],
+  items:[{k:"elephant",b:0},{k:"ant",b:1},{k:"horse",b:0},{k:"ladybug",b:1},
+         {k:"camel",b:0},{k:"bee",b:1}],
+  note:"Големината се съди по истинския размер, не по картинката — тя е еднаква за всички."}),
+mk("gm-sb-4","sortbin","Логика","Подреди в кошниците","Къде живеят",
+ "Сложи всяко животно там, където живее.","5–6",
+ {bins:[{l:"във водата"},{l:"в небето"},{l:"на земята"}],
+  items:[{k:"fish",b:0},{k:"bird",b:1},{k:"cat",b:2},{k:"whale",b:0},
+         {k:"sparrow",b:1},{k:"dog",b:2},{k:"octopus",b:0},{k:"parrot",b:1},{k:"horse",b:2}],
+  note:"Три кошници вместо две. Третият признак прави задачата чувствително по-трудна."}),
+mk("gm-sb-5","sortbin","Език","Подреди в кошниците","Първият звук",
+ "Сложи думите според първия си звук.","5–6",
+ {bins:[{l:"започва с М"},{l:"започва с К"}],
+  items:[{l:"маса",b:0},{l:"котка",b:1},{l:"мечка",b:0},{l:"куче",b:1},
+         {l:"молив",b:0},{l:"книга",b:1},{l:"мишка",b:0},{l:"коса",b:1}],
+  note:"Фонематичен анализ. Изговаряйте думата провлачено: ммм-аса."}),
+mk("gm-sb-6","sortbin","Език","Подреди в кошниците","Колко срички",
+ "Подреди думите според броя на сричките.","7–8",
+ {bins:[{l:"една сричка"},{l:"две срички"},{l:"три срички"}],
+  items:[{l:"мост",b:0},{l:"маса",b:1},{l:"колело",b:2},{l:"хляб",b:0},
+         {l:"книга",b:1},{l:"лисица",b:2},{l:"сол",b:0},{l:"лампа",b:1},{l:"картина",b:2}]}),
+mk("gm-sb-7","sortbin","Математика","Подреди в кошниците","Четни и нечетни",
+ "Сложи числата в правилната кошница.","9–10",
+ {bins:[{l:"четни"},{l:"нечетни"}],
+  items:[{l:"12",b:0},{l:"7",b:1},{l:"28",b:0},{l:"15",b:1},
+         {l:"40",b:0},{l:"33",b:1},{l:"6",b:0},{l:"21",b:1}]}),
+mk("gm-sb-8","sortbin","Математика","Подреди в кошниците","Кое колко прави",
+ "Сложи всяка сметка при своя отговор.","7–8",
+ {bins:[{l:"прави 10"},{l:"прави 12"}],
+  items:[{l:"6 + 4",b:0},{l:"7 + 5",b:1},{l:"8 + 2",b:0},{l:"9 + 3",b:1},
+         {l:"5 + 5",b:0},{l:"6 + 6",b:1}]}),
+mk("gm-sb-9","sortbin","Език","Подреди в кошниците","Кой, коя, кое",
+ "Сложи всяка дума при нейния род.","6–7",
+ {bins:[{l:"той"},{l:"тя"},{l:"то"}],
+  items:[{l:"столът",b:0},{l:"масата",b:1},{l:"детето",b:2},{l:"моливът",b:0},
+         {l:"книгата",b:1},{l:"кучето",b:2}],
+  note:"Родът се проверява с местоимението, не с окончанието — окончанието лъже при думи като „баща“."}),
+mk("gm-sb-10","sortbin","Възприятие","Подреди в кошниците","Кръгло, ъглесто",
+ "Подреди фигурите по формата им.","4–5",
+ {bins:[{l:"кръгло"},{l:"с ъгли"}],
+  items:[{k:"ball",b:0},{k:"square",b:1},{k:"orange",b:0},{k:"triangle",b:1},
+         {k:"coin",b:0},{k:"book",b:1}]}),
+
+/* ---------- СЪЩОТО ЛИ Е ---------- */
+mk("gm-nb-1","nback","Памет","Същото ли е","Шест картинки",
+ "Гледай картинките една по една. Всеки път казвай дали е същата като предишната.","5–6",
+ {seq:["apple","apple","cat","ball","ball","star"],
+  note:"Сравняване с непосредствено предишното. Предишната картинка вече не се вижда — това е същината."}),
+mk("gm-nb-2","nback","Памет","Същото ли е","Осем картинки",
+ "Всеки път казвай дали картинката е същата като предишната.","6–7",
+ {seq:["fish","fish","tree","house","house","house","sun","key"]}),
+mk("gm-nb-3","nback","Памет","Същото ли е","Десет картинки",
+ "Всеки път казвай дали картинката е същата като предишната.","7–8",
+ {seq:["pencil","book","book","scissors","key","key","clock","lamp","lamp","cup"],
+  note:"Десет стъпки държат вниманието дълго. Ако детето се разсее в средата, това се вижда в резултата."}),
+mk("gm-nb-4","nback","Памет","Същото ли е","Дванайсет картинки",
+ "Всеки път казвай дали картинката е същата като предишната.","9–10",
+ {seq:["tPhone","tLaptop","tLaptop","tCamera","tBike","tBike","tMap","tCompass","tCompass","tTrophy","tPuzzle","tPuzzle"]}),
+mk("gm-nb-5","nback","Внимание","Същото ли е","Много повторения",
+ "Внимавай — много от картинките се повтарят.","7–8",
+ {seq:["star","star","star","bee","bee","star","star","flower","flower","flower"],
+  note:"Дългите поредици от еднакви приспиват вниманието — точно там идват грешките."}),
+
+/* ---------- НАГЛАСИ ЧАСОВНИКА ---------- */
+mk("gm-cl-1","clockset","Математика","Нагласи часовника","Три часа",
+ "Нагласи часовника да показва 3:00.","5–6",{h:3,m:0,
+ hint:"Първо часовата стрелка, после минутната.",
+ note:"Кръгли часове първо. Малката стрелка сочи числото, голямата — нагоре към 12."}),
+mk("gm-cl-2","clockset","Математика","Нагласи часовника","Седем часа",
+ "Нагласи часовника да показва 7:00.","5–6",{h:7,m:0}),
+mk("gm-cl-3","clockset","Математика","Нагласи часовника","Половин час",
+ "Нагласи часовника да показва 4:30.","6–7",{h:4,m:30,
+ hint:"На половин час голямата стрелка сочи надолу, към 6.",
+ note:"На „и половина“ малката стрелка стои между две числа — много деца я слагат точно на числото."}),
+mk("gm-cl-4","clockset","Математика","Нагласи часовника","Девет и половина",
+ "Нагласи часовника да показва 9:30.","6–7",{h:9,m:30}),
+mk("gm-cl-5","clockset","Математика","Нагласи часовника","Петнайсет минути",
+ "Нагласи часовника да показва 2:15.","7–8",{h:2,m:15,
+ note:"Четвърт час. Голямата стрелка сочи 3, а не 15 — това е основната пречка."}),
+mk("gm-cl-6","clockset","Математика","Нагласи часовника","Без петнайсет",
+ "Нагласи часовника да показва 5:45.","7–8",{h:5,m:45,
+ hint:"„Шест без петнайсет“ е същото като 5:45."}),
+mk("gm-cl-7","clockset","Математика","Нагласи часовника","Двайсет минути",
+ "Нагласи часовника да показва 8:20.","9–10",{h:8,m:20}),
+mk("gm-cl-8","clockset","Математика","Нагласи часовника","Пет и петдесет",
+ "Нагласи часовника да показва 11:50.","9–10",{h:11,m:50,
+ note:"Почти цял час — часовата стрелка вече е съвсем близо до следващото число."}),
+
+/* ---------- СГЛОБИ ДУМАТА ---------- */
+mk("gm-wb-1","wordbuild","Език","Сглоби думата","Ко-ле-ло",
+ "Подреди сричките, за да се получи думата.","5–6",{parts:["ко","ле","ло"], pic:"bicycle",
+ note:"Сричковият синтез е обратното на анализа — от части към цяло. Изговаряйте всяка сричка на глас при поставянето."}),
+mk("gm-wb-2","wordbuild","Език","Сглоби думата","Ма-са",
+ "Подреди сричките.","4–5",{parts:["ма","са"], pic:"table"}),
+mk("gm-wb-3","wordbuild","Език","Сглоби думата","Ли-си-ца",
+ "Подреди сричките.","5–6",{parts:["ли","си","ца"], pic:"fox"}),
+mk("gm-wb-4","wordbuild","Език","Сглоби думата","Пе-пе-ру-да",
+ "Подреди четирите срички.","6–7",{parts:["пе","пе","ру","да"], pic:"butterfly",
+ note:"Две еднакви срички в началото — детето трябва да следи мястото, не само звука."}),
+mk("gm-wb-5","wordbuild","Език","Сглоби думата","У-чи-ли-ще",
+ "Подреди сричките.","7–8",{parts:["у","чи","ли","ще"], pic:"backpack"}),
+mk("gm-wb-6","wordbuild","Език","Сглоби думата","Буквите на КОТКА",
+ "Подреди буквите, за да се получи думата КОТКА.","6–7",{parts:["К","О","Т","К","А"], pic:"cat",
+ note:"Буквен синтез. Двете К са нарочно — проверява се позицията, не само наличието."}),
+mk("gm-wb-7","wordbuild","Език","Сглоби думата","Буквите на КНИГА",
+ "Подреди буквите, за да се получи думата КНИГА.","6–7",{parts:["К","Н","И","Г","А"], pic:"book"}),
+mk("gm-wb-8","wordbuild","Език","Сглоби думата","Буквите на ПРОЗОРЕЦ",
+ "Подреди буквите, за да се получи думата ПРОЗОРЕЦ.","9–10",
+ {parts:["П","Р","О","З","О","Р","Е","Ц"],
+  note:"Осем букви с две повтарящи се О и две Р — задача за търпение и проверка."}),
+mk("gm-wb-9","wordbuild","Език","Сглоби изречението","Кратко изречение",
+ "Подреди думите в изречение.","6–7",{parts:["Мама ","чете ","книга."],
+ note:"Същата механика, но с думи. Интервалите са част от частите, за да се чете естествено."}),
+mk("gm-wb-10","wordbuild","Език","Сглоби думата","Дълга дума",
+ "Подреди сричките на думата „телевизор“.","9–10",{parts:["те","ле","ви","зор"]}),
+
+/* ---------- ЧИСЛОВАТА ЛИНИЯ ---------- */
+mk("gm-nl-1","numline","Математика","Числовата линия","До десет",
+ "Докосни линията там, където стои числото.","5–6",{max:10, target:7, ticks:10, tol:0,
+ note:"С всички деления е задача за броене. По-късните варианти махат деленията и стават оценка."}),
+mk("gm-nl-2","numline","Математика","Числовата линия","До двайсет",
+ "Докосни линията там, където стои числото.","6–7",{max:20, target:13, ticks:4, tol:1,
+ hint:"Между 10 и 20 — по-близо до средата или до края?"}),
+mk("gm-nl-3","numline","Математика","Числовата линия","До сто",
+ "Докосни линията там, където стои числото.","7–8",{max:100, target:35, ticks:10, tol:3}),
+mk("gm-nl-4","numline","Математика","Числовата линия","Без помощ",
+ "Тук има само начало и край. Къде е числото?","9–10",{max:100, target:62, ticks:1, tol:5,
+ note:"Оценка без опорни деления. Това умение предсказва успеха в смятането по-добре от наизустеното броене."}),
+mk("gm-nl-5","numline","Математика","Числовата линия","До хиляда",
+ "Докосни линията там, където стои числото.","9–10",{max:1000, target:750, ticks:4, tol:40, step:10}),
+mk("gm-nl-6","numline","Математика","Числовата линия","Точно по средата",
+ "Къде е средата между 0 и 40?","7–8",{max:40, target:20, ticks:4, tol:2}),
+
+/* ---------- ВЕЗНАТА ---------- */
+mk("gm-bl-1","balance","Математика","Везната","Изравни петте",
+ "Сложи тежести отдясно, докато везната се изравни.","6–7",
+ {left:[5], bank:[1,2,3,4],
+  hint:"Има повече от един начин.",
+  note:"Разлагане на число на събираеми — същото умение като „5 = 2 + 3“, но с ръце."}),
+mk("gm-bl-2","balance","Математика","Везната","Осем килограма",
+ "Изравни двете страни.","6–7",{left:[8], bank:[1,2,3,5,6]}),
+mk("gm-bl-3","balance","Математика","Везната","Две тежести отляво",
+ "Отляво има две тежести. Изравни ги.","7–8",{left:[4,3], bank:[1,2,3,4,5,6],
+ note:"Първо се събира лявата страна, после се търси комбинация. Две стъпки."}),
+mk("gm-bl-4","balance","Математика","Везната","Дванайсет",
+ "Изравни двете страни.","7–8",{left:[7,5], bank:[2,3,4,5,6,8]}),
+mk("gm-bl-5","balance","Математика","Везната","Точно двайсет",
+ "Изравни двете страни.","9–10",{left:[9,11], bank:[3,4,5,6,7,8,12]}),
+mk("gm-bl-6","balance","Математика","Везната","С излишни тежести",
+ "Не всички тежести ти трябват.","9–10",{left:[6,9], bank:[2,4,7,8,11,13],
+ note:"Наличието на излишни тежести пречи на търсенето наслука и подтиква към пресмятане."}),
+
+/* ---------- НАМЕРИ РАЗЛИКИТЕ ---------- */
+mk("gm-sp-1","spot","Възприятие","Намери разликите","Две разлики",
+ "Двете картини почти си приличат.","4–5",
+ {cols:4,
+  a:["apple","cat","star","flower","fish","tree","house","sun"],
+  b:["apple","cat","star","bee",   "fish","tree","key",  "sun"],
+  note:"Систематичното сравняване поле по поле е умение. Покажете как: отляво надясно, ред по ред."}),
+mk("gm-sp-2","spot","Възприятие","Намери разликите","Три разлики",
+ "Намери трите разлики.","5–6",
+ {cols:4,
+  a:["ball","hat","shoe","cup","key","leaf","mushroom","umbrella","snail","bird","car","bee"],
+  b:["ball","hat","cup", "cup","key","leaf","snail",   "umbrella","snail","bird","car","star"]}),
+mk("gm-sp-3","spot","Концентрация","Намери разликите","Четири разлики",
+ "Намери четирите разлики.","7–8",
+ {cols:5,
+  a:["pencil","book","scissors","clock","lamp","key","cup","glasses","backpack","star",
+     "leaf","bee","fish","tree","house"],
+  b:["pencil","book","clock",   "clock","lamp","key","cup","glasses","star",    "star",
+     "leaf","bee","tree","tree","house"]}),
+mk("gm-sp-4","spot","Концентрация","Намери разликите","Пет разлики",
+ "Картините са големи. Намери петте разлики.","9–10",
+ {cols:5,
+  a:["tPhone","tLaptop","tCamera","tBike","tMap","tCompass","tTrophy","tPuzzle","tRocket","tStarBig",
+     "tBolt","tBattery","tWifi","tHeadphones","tBackpack","tSkate","tGuitar","tFootball","tBasket","tStopwatch"],
+  b:["tPhone","tLaptop","tBike",  "tBike","tMap","tCompass","tPuzzle","tPuzzle","tRocket","tStarBig",
+     "tBolt","tWifi",   "tWifi","tHeadphones","tBackpack","tSkate","tFootball","tFootball","tBasket","tCompass"],
+  note:"Двайсет полета и пет разлики — задачата вече изисква стратегия, не късмет."})
+]);
+})();
+
 /* =================== ГЛАС, ПРОФИЛ, ИНСТРУМЕНТИ, КЛАСОВЕ =================== */
 
 /* ---------- 1. Гласови указания ---------- */
@@ -9111,7 +9846,7 @@ cards = function(){
 };
 
 /* =================== РЪКОВОДСТВА =================== */
-const GUIDE_VER = "25.09.2026";
+const GUIDE_VER = "25.09.2026 · II";
 const GUIDES = {
   logoped: {
     title: "Ръководство за логопеда",
@@ -9140,7 +9875,16 @@ const GUIDES = {
         "Покажи и скрий — зрителна памет и памет за ред.",
         "Звук — височина, дължина, брой, повторение на мелодия, първи звук в думата.",
         "Скорост — бързо разпознаване с меко ограничение на времето.",
-        "Оцветяване, рисуване, ритъм и истории — творчески задачи без верен отговор."]},
+        "Оцветяване, рисуване, ритъм и истории — творчески задачи без верен отговор.",
+        "Свържи по ред — зрително сканиране и задържане на редица; вариантът „ту число, ту буква“ мери превключване между две правила.",
+        "Кажи цвета (Струп) — задържане на автоматичния отговор. Забавянето е очаквано и е самата цел.",
+        "Подреди в кошниците — класификация по признак, с две или три кошници.",
+        "Същото ли е — работна памет: предишната картинка вече не се вижда.",
+        "Нагласи часовника — часовата и минутната стрелка се местят с пръст.",
+        "Сглоби думата — сричков и буквен синтез, с картинка за опора.",
+        "Числовата линия — оценка на големина без броене.",
+        "Везната — разлагане на число на събираеми с ръце.",
+        "Намери разликите — систематично сравняване поле по поле."]},
       {h:"Инструменти за кабинета", p:[
         "Бутонът „Инструменти“ отваря пясъчен часовник със звук, зарче, въртележка с картинки и брояч. Ползвайте ги и извън платформата — за ред на говорене, за избор на тема, за броене на повторения."]},
       {h:"Работни листове за печат", l:[
