@@ -1077,7 +1077,7 @@ header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:26p
 <header>
   <div class="hin">
     <div>
-      <p class="eyebrow" id="eyebrow">Кабинет на логопеда</p>
+      <p class="eyebrow" id="eyebrow">Кабинет на специалиста</p>
       <h1 id="h1">Мариполия</h1>
     </div>
     <div class="hstat" id="hstat"><b id="stat">0</b>решени задачи</div>
@@ -2297,7 +2297,7 @@ const EX = [
 
 {id:"absurd", t:"open", g:"Език", m:"Абсурди", title:"Кое е грешното",
  instr:"Кое е грешното в тази картина? Обясни защо.",
- hint:"Отговаря се на глас. Логопедът отбелязва.", src:"…13140, стр. 1",
+ hint:"Отговаря се на глас. Специалистът отбелязва.", src:"…13140, стр. 1",
  note:"Оригиналните абсурди: щъркел в клетка, лодка по зелен склон, дърво с различни плодове, гнездо с трева отгоре, петел, който плува в реката, снежен човек на зелена поляна. Целта е обяснение, не посочване.",
  scene:()=>`<div class="row">
    <div class="item lg" style="cursor:default">${ART.stork()}<span class="lbl">щъркел в клетка</span></div>
@@ -4641,7 +4641,7 @@ const EX = [
 
 /* ---- ВЪЗРАСТОВО РАЗПРЕДЕЛЕНИЕ ----------------------------------
    ВНИМАНИЕ: в ръкописа няма записани възрасти. Числата по-долу са
-   предложение по развитийни норми и подлежат на преглед от логопед.
+   предложение по развитийни норми и подлежат на преглед от специалист.
    Промяната на един ред тук мести задачата между възрастите.
 ------------------------------------------------------------------ */
 const AGE={
@@ -5124,7 +5124,7 @@ function codeScreen(){
 let filter="Всички", fAge="Всички възрасти", q="";
 
 /* Търсенето гледа заглавието, инструкцията, подтипа, областта, бележката
-   за логопеда и източника — за да може да се търси и „стр. 25“. */
+   за специалиста и източника — за да може да се търси и „стр. 25“. */
 const norm = t => (t||"").toLowerCase().replace(/ё/g,"е");
 const hay = e => norm([e.title,e.instr,e.m,e.g,e.hint,e.note,e.src].join(" "));
 /* Българският мени окончанията: „предлог“ трябва да намира и „предлози“.
@@ -5233,7 +5233,7 @@ function open_(id){
    ${e.hint?`<p class="hint">${e.hint}</p>`:""}</div>
    <div class="stage" id="stage"></div>
    <div class="feedback" id="fb"></div><div class="controls" id="ctl"></div>`+
-   (home?"":`<div class="panel"><h3>За логопеда</h3>${e.note?`<p>${e.note}</p>`:""}
+   (home?"":`<div class="panel"><h3>За специалиста</h3>${e.note?`<p>${e.note}</p>`:""}
    <p class="src">Източник: ${e.src} · механика <code>${e.t}</code> ·
    възраст <strong>${e.age} г.</strong> — предложена, не е от ръкописа</p></div>`);
   if(!home) d.querySelector(".back").onclick=back;
@@ -5275,7 +5275,7 @@ function finish(){
     <div class="stars">${[0,1,2].map(()=>ART.star(C.yellow)).join("")}</div>
     <h2>Браво!</h2>
     <p class="instr" style="margin-inline:auto">Реши ${n} от ${run.ids.length} задачи.</p>
-    <p class="mut">Покажи този код на логопеда:</p>
+    <p class="mut">Покажи този код на специалиста:</p>
     <div class="bigcode">${code}</div>
     <div class="controls"><button class="btn ghost" type="button" id="again">Още веднъж</button></div>
   </div>`;
@@ -5802,7 +5802,7 @@ function printTrace(e,PATH,VB,has){
 
 /* =========================== ВХОД В ПЛАТФОРМАТА ===========================
    Работещ прототип на етап 1 от концепцията: вход, регистрация, покана,
-   съгласие на родителя, детски профили, „Днес за теб“, изглед на логопеда.
+   съгласие на родителя, детски профили, „Днес за теб“, изглед на специалиста.
    ДЕМО: профилите и напредъкът живеят само в този браузър. В платформата
    същите екрани говорят с услуга за вход и база данни в ЕС.
 =========================================================================== */
@@ -5835,7 +5835,7 @@ async function loadDB(){
   DB = LS.get("lg-demo-db", null);
   if(DB && DB.users && DB.kids && DB.invites) return;
   DB = {users:{}, kids:{}, invites:{}};
-  DB.users["logoped@demo.bg"] = {role:"logoped", name:"Демо логопед", status:"active",
+  DB.users["logoped@demo.bg"] = {role:"logoped", name:"Демо специалист", status:"active",
     pw:await hashPw("logoped@demo.bg","demo2026")};
   DB.users["roditel@demo.bg"] = {role:"roditel", name:"Демо родител", status:"active", consent:today(),
     pw:await hashPw("roditel@demo.bg","demo2026")};
@@ -5867,7 +5867,7 @@ function whoChip(kind, k){
     document.getElementById("stoprun").onclick = () => { restoreDone(); run=null; MODE="office"; childToday(k) };
     return;
   }
-  n.innerHTML = `<span class="whoname">${esc(u.name)}<small>${u.role==="logoped"?"логопед":"родител"} · ${esc(USER)}</small></span>
+  n.innerHTML = `<span class="whoname">${esc(u.name)}<small>${u.role==="logoped"?"специалист":"родител"} · ${esc(USER)}</small></span>
     <button class="btn sm ghost" type="button" id="logout">Изход</button>`;
   document.getElementById("logout").onclick = logout;
 }
@@ -5889,11 +5889,11 @@ const DEMO_BOX = `<p class="demo">${DEMO_NOTE}<br>Пробни профили: <
 
 function authScreen(mode="login", msg="", token=""){
   MODE="office"; run=null;
-  setHead("Кабинет на логопеда", "Мариполия", false);
+  setHead("Кабинет на специалиста", "Мариполия", false);
   whoChip();
   let body = "";
   if(mode==="login") body = `<h2>Вход</h2>
-    <p class="sub">За логопеди и родители.</p>
+    <p class="sub">За специалисти и родители.</p>
     <form id="af" novalidate>
       <label>Имейл<input name="email" type="email" autocomplete="username" required></label>
       ${pwField("pw","current-password")}
@@ -5904,16 +5904,16 @@ function authScreen(mode="login", msg="", token=""){
     <div class="adiv"><span>нямате профил?</span></div>
     <div class="abtns">
       <button class="btn ghost" type="button" data-go="reg-roditel">Регистрация на родител</button>
-      <button class="btn ghost" type="button" data-go="reg-logoped">Регистрация на логопед</button></div>
+      <button class="btn ghost" type="button" data-go="reg-logoped">Регистрация на специалист</button></div>
     <button type="button" class="lnk trial" data-go="trial">Пробвайте без регистрация — 5 задачи, без запис →</button>
     ${DEMO_BOX}`;
 
   if(mode==="reg-roditel" || mode==="reg-logoped"){
     const par = mode==="reg-roditel";
-    body = `<h2>${par?"Регистрация на родител":"Регистрация на логопед"}</h2>
+    body = `<h2>${par?"Регистрация на родител":"Регистрация на специалист"}</h2>
     <p class="sub">${par
-      ? "За семейства без логопед. Ако работите с логопед, изчакайте поканата от него — така той ще вижда напредъка."
-      : "Администраторът одобрява всеки логопедски профил, преди да бъде активен."}</p>
+      ? "За семейства без специалист. Ако работите с специалист, изчакайте поканата от него — така той ще вижда напредъка."
+      : "Администраторът одобрява всеки профил на специалист, преди да бъде активен."}</p>
     <form id="af" novalidate>
       <label>${par?"Как да ви наричаме":"Име и фамилия"}<input name="name" type="text" autocomplete="name" required></label>
       <label>Имейл <span class="hintx">— той е и потребителското ви име</span>
@@ -5948,7 +5948,7 @@ function authScreen(mode="login", msg="", token=""){
   if(mode==="pending") body = `<h2>Заявката е изпратена</h2>
     <p class="sub">Профилът ви ще се активира, щом администраторът го одобри. Ще получите имейл.</p>
     <p class="demo">В демото: излезте и влезте като администратор — <b>admin@demo.bg</b>, парола
-      <b>demo2026</b> — и одобрете заявката от „Заявки от логопеди“.</p>
+      <b>demo2026</b> — и одобрете заявката от „Заявки от специалисти“.</p>
     <div class="abtns" style="margin-top:14px">
       <button class="btn ghost" type="button" data-go="login">Към входа</button></div>`;
 
@@ -5970,12 +5970,12 @@ function authScreen(mode="login", msg="", token=""){
   if(mode==="invite"){
     const inv = DB.invites[token];
     if(!inv) body = `<h2>Поканата не е валидна</h2>
-      <p class="sub">Вероятно вече е използвана. Влезте с имейла и паролата си или помолете логопеда за нова покана.</p>
+      <p class="sub">Вероятно вече е използвана. Влезте с имейла и паролата си или помолете специалиста за нова покана.</p>
       <p class="alinks"><button type="button" class="lnk" data-go="login">← Към входа</button></p>`;
     else {
       const kid = DB.kids[inv.kid], lp = DB.users[inv.logoped], has = !!DB.users[inv.email];
       body = `<h2>Покана за ${esc(kid.name)}</h2>
-      <p class="sub">${esc(lp?lp.name:"Логопедът")} ви кани да следите задачите на детето.
+      <p class="sub">${esc(lp?lp.name:"Специалистът")} ви кани да следите задачите на детето.
         ${has?"Вече имате профил — влезте, за да го добавим към него.":"Изберете парола, за да влизате."}</p>
       <form id="af" novalidate>
         <label>Имейл<input name="email" type="email" value="${esc(inv.email)}" readonly></label>
@@ -5985,7 +5985,7 @@ function authScreen(mode="login", msg="", token=""){
           ${pwField("pw2","new-password","Паролата още веднъж")}
           <label class="chkl"><input type="checkbox" name="terms">Приемам условията за ползване и политиката за данни.</label>`}
         <label class="chkl"><input type="checkbox" name="consent">Като родител давам съгласие да се пазят
-          прякорът и възрастовата група на ${esc(kid.name)} и кои задачи е решил(а), и логопедът да ги вижда.</label>
+          прякорът и възрастовата група на ${esc(kid.name)} и кои задачи е решил(а), и специалистът да ги вижда.</label>
         <p class="err" id="aerr" role="alert"></p>
         <button class="btn full" type="submit">Приемам поканата</button>
       </form>`;
@@ -6065,7 +6065,7 @@ async function submitAuth(mode, f, token){
       if(v("pw") !== v("pw2")) return err("Двете пароли не съвпадат.");
       if(!v("terms")) return err("Нужно е да приемете условията.");
     }
-    if(!v("consent")) return err("Без съгласието на родителя логопедът не може да вижда напредъка.");
+    if(!v("consent")) return err("Без съгласието на родителя специалистът не може да вижда напредъка.");
     if(!has) DB.users[inv.email] = {role:"roditel", name:v("name"), status:"active",
       pw: await hashPw(inv.email, v("pw"))};
     DB.users[inv.email].consent = today();
@@ -6081,7 +6081,7 @@ const needsBack = h => !!h && h.length>0 && (h[h.length-1].a===0 || h[h.length-1
 const DOMS = GOALS.slice(1);
 function pickToday(k){
   const kid = DB.kids[k], H = kid.hist, out = [];
-  /* логопедът решава: възложеното е първо */
+  /* специалистът решава: възложеното е първо */
   kid.hw.forEach(id => { if(out.length<5 && EX.some(e=>e.id===id)) out.push(id) });
   const pool = EX.filter(e => e.age===kid.age && !out.includes(e.id) && !mastered(H[e.id]));
   /* връщане: трудните от последния път — най-много две */
@@ -6126,7 +6126,7 @@ function whoPlays(){
       const T = v.todaySet, doneT = T && T.date===today() && T.done;
       return `<button class="kid" type="button" data-k="${k}"><span class="av">${avatar(v.av)}</span>
         <span class="kn">${esc(v.name)}</span><span class="ka">${v.age} г.</span>
-        ${doneT?`<span class="kb">днес ✓</span>`:v.hw.length?`<span class="kb">${v.hw.length} от логопеда</span>`:""}</button>`
+        ${doneT?`<span class="kb">днес ✓</span>`:v.hw.length?`<span class="kb">${v.hw.length} от специалиста</span>`:""}</button>`
     }).join("")+
     `<button class="kid add" type="button" id="addk"><span class="plus">+</span><span class="ka">Добави дете</span></button></div>
     ${kids.length?`<h3 class="sec">Напредък</h3>`+kids.map(([k,v])=>kidProgress(v)).join(""):""}
@@ -6220,7 +6220,7 @@ finish = function(){
       <div class="stars">${[0,1,2].map(()=>ART.star(C.yellow)).join("")}</div>
       <h2>Браво, ${esc(kid.name)}!</h2>
       <p class="instr" style="margin-inline:auto">Реши ${n} от ${run.ids.length} задачи.</p>
-      <p class="mut">Напредъкът е записан${kid.logoped?" и логопедът ще го види":""}.</p>
+      <p class="mut">Напредъкът е записан${kid.logoped?" и специалистът ще го види":""}.</p>
       <div class="controls"><button class="btn" type="button" id="dn">Готово</button></div></div>`;
     whoChip();
     document.getElementById("dn").onclick = () => { run=null; MODE="office"; whoPlays() };
@@ -6243,10 +6243,10 @@ finish = function(){
   _finish();
 };
 
-/* ---------- логопед ---------- */
+/* ---------- специалист ---------- */
 function officeHome(){
   MODE="office"; run=null; pickMode=false; chosen=[];
-  setHead("Кабинет на логопеда", "Мариполия", true); whoChip();
+  setHead("Кабинет на специалиста", "Мариполия", true); whoChip();
   document.getElementById("detail").hidden = true;
   document.getElementById("list").hidden = false;
   modebar(); tabs(); search(); cards(); upd();
@@ -6302,7 +6302,7 @@ function myKids(msg=""){
   MODE="office";
   const kids = Object.entries(DB.kids).filter(([k,v]) => v.logoped===USER);
   const invites = Object.entries(DB.invites).filter(([t,v]) => v.logoped===USER);
-  setHead("Кабинет на логопеда", "Моите деца", false); whoChip();
+  setHead("Кабинет на специалиста", "Моите деца", false); whoChip();
   let iage = "4–5";
   const d = screen(`<button class="back" type="button" id="kb">← Всички задачи</button>
     <div class="klist">${kids.length ? kids.map(([k,v]) => {
@@ -6349,7 +6349,7 @@ function myKids(msg=""){
     const err = t => document.getElementById("aerr").textContent = t;
     if(!name) return err("Напишете прякор или първо име.");
     if(!okEmail(email)) return err("Проверете имейла на родителя.");
-    if(DB.users[email] && DB.users[email].role!=="roditel") return err("Този имейл е на логопедски профил.");
+    if(DB.users[email] && DB.users[email].role!=="roditel") return err("Този имейл е на профил на специалист.");
     const k = "k"+tok(), t = tok()+tok();
     DB.kids[k] = {name, age:iage, av: AVS[Object.keys(DB.kids).length % 3], parent:null, logoped:USER, hw:[], hist:{}};
     DB.invites[t] = {kid:k, email, logoped:USER, at:today()};
@@ -6358,7 +6358,7 @@ function myKids(msg=""){
 }
 
 /* =========================== ЕТАП 1: ДОВЪРШВАНЕ ===========================
-   Администратор (одобрява логопедите), „Моят профил“ (име, парола,
+   Администратор (одобрява специалистите), „Моят профил“ (име, парола,
    изтриване на профила и детските профили с един бутон), управление на
    детските профили, нова парола по връзка, нулиране на демото.
 =========================================================================== */
@@ -6417,17 +6417,17 @@ function dropKid(k){
 }
 const plural = (n, one, many) => n===1 ? one : n+" "+many;
 
-/* ---------- „Моят профил“ за родител и логопед ---------- */
+/* ---------- „Моят профил“ за родител и специалист ---------- */
 function accountScreen(msg=""){
   MODE="office"; run=null;
   const u = me(), par = u.role==="roditel";
   const kids = Object.entries(DB.kids).filter(([k,v]) => par ? v.parent===USER : v.logoped===USER);
-  setHead(par ? "Родител" : "Кабинет на логопеда", "Моят профил", false); whoChip();
+  setHead(par ? "Родител" : "Кабинет на специалиста", "Моят профил", false); whoChip();
   const kidRows = kids.map(([k,v]) => `<div class="krow" data-k="${k}" style="margin-top:12px">
       <form class="kedit" novalidate style="display:flex;flex-direction:column;gap:12px">
         <label>Прякор или първо име<input name="name" type="text" maxlength="20" value="${esc(v.name)}" required></label>
         <div class="seg">${AGES.slice(1).map(a=>`<button type="button" data-v="${a}" aria-pressed="${a===v.age}">${a} г.</button>`).join("")}</div>
-        <p class="mut" style="margin:0">${v.logoped ? "Следи го логопед: "+esc(DB.users[v.logoped]?.name||v.logoped) : "Без логопед"} ·
+        <p class="mut" style="margin:0">${v.logoped ? "Следи го специалист: "+esc(DB.users[v.logoped]?.name||v.logoped) : "Без специалист"} ·
           ${Object.keys(v.hist).length} задачи в историята</p>
         <p class="err" role="alert"></p>
         <div class="controls" style="justify-content:flex-start">
@@ -6459,8 +6459,8 @@ function accountScreen(msg=""){
 
     <div class="auth" style="margin-top:18px;border-color:var(--red)"><h2>Изтриване на профила</h2>
       <p class="sub">${par
-        ? `Изтриват се профилът ви и ${kids.length ? plural(kids.length, "детският профил", "детски профила") : "детските профили"} с целия напредък. Логопедът също губи достъп до тях.`
-        : `Изтрива се профилът ви. Децата, чиито родители вече са приели поканата, остават при родителите си, но без логопед. Неприетите покани се изтриват.`}
+        ? `Изтриват се профилът ви и ${kids.length ? plural(kids.length, "детският профил", "детски профила") : "детските профили"} с целия напредък. Специалистът също губи достъп до тях.`
+        : `Изтрива се профилът ви. Децата, чиито родители вече са приели поканата, остават при родителите си, но без специалист. Неприетите покани се изтриват.`}
         Действието не може да се върне.</p>
       <form id="xf" novalidate>
         <label>Напишете ИЗТРИЙ, за да потвърдите<input name="c" type="text" autocomplete="off"></label>
@@ -6514,11 +6514,11 @@ function accountScreen(msg=""){
     delete DB.users[USER]; saveDB();
     USER = null; LS.sset("lg-user", null);
     authScreen("login", "");
-    const s = document.querySelector(".auth .sub"); if(s) s.innerHTML = `<b style="color:var(--ok)">Профилът е изтрит.</b> За логопеди и родители.`;
+    const s = document.querySelector(".auth .sub"); if(s) s.innerHTML = `<b style="color:var(--ok)">Профилът е изтрит.</b> За специалисти и родители.`;
   };
 }
 
-/* ---------- логопед: да спре да следи дете или да отмени покана ---------- */
+/* ---------- специалист: да спре да следи дете или да отмени покана ---------- */
 const _myKids = myKids;
 myKids = function(msg=""){
   _myKids(msg);
@@ -6552,20 +6552,20 @@ function adminHome(msg=""){
       ${red?'style="color:var(--red);border-color:var(--red)"':""}>${t}</button>`;
   const d = screen(`<p class="okmsg" role="status" style="text-align:center;min-height:1.4em;margin-top:18px">${esc(msg)}</p>
     <div class="resrow" style="flex-wrap:wrap;margin-top:8px">
-      <div><div class="rn">${lps.filter(([e,u])=>u.status==="active").length}</div><div class="rl">активни логопеди</div></div>
+      <div><div class="rn">${lps.filter(([e,u])=>u.status==="active").length}</div><div class="rl">активни специалисти</div></div>
       <div><div class="rn">${pars.length}</div><div class="rl">родители</div></div>
       <div><div class="rn">${Object.keys(DB.kids).length}</div><div class="rl">детски профила</div></div>
       <div><div class="rn">${Object.keys(DB.invites).length}</div><div class="rl">чакащи покани</div></div></div>
 
-    <h3 class="sec">Заявки от логопеди</h3>
+    <h3 class="sec">Заявки от специалисти</h3>
     <div class="klist">${pend.length ? pend.map(([e,u]) => row(e,u,"",
       B("ok","Одобри")+B("no","Откажи",1))).join("") : `<p class="mut">Няма чакащи заявки.</p>`}</div>
 
-    <h3 class="sec">Логопеди</h3>
+    <h3 class="sec">Специалисти</h3>
     <div class="klist">${lps.length ? lps.map(([e,u]) => row(e,u,
       `<span class="mut">${plural(kidsOf(e,"logoped"),"1 дете","деца")}</span>${u.status==="blocked"?`<span class="tag">спрян</span>`:""}`,
       u.status==="blocked" ? B("ok","Върни достъпа") : B("block","Спри достъпа",1))).join("")
-      : `<p class="mut">Още няма одобрени логопеди.</p>`}</div>
+      : `<p class="mut">Още няма одобрени специалисти.</p>`}</div>
 
     <h3 class="sec">Родители</h3>
     <div class="klist">${pars.length ? pars.map(([e,u]) => row(e,u,
@@ -9845,7 +9845,7 @@ function beep(){
 }
 function toolbox(){
   MODE="office"; run=null;
-  setHead("Кабинет на логопеда", "Инструменти", false); whoChip();
+  setHead("Кабинет на специалиста", "Инструменти", false); whoChip();
   let left = 120, timer = null, running = false, cnt = 0, face = 1, spinning = false;
   const dieDots = n => {
     const P = {1:[[50,50]],2:[[28,28],[72,72]],3:[[28,28],[50,50],[72,72]],
@@ -9983,14 +9983,14 @@ cards = function(){
 const GUIDE_VER = "25.09.2026 · II";
 const GUIDES = {
   logoped: {
-    title: "Ръководство за логопеда",
+    title: "Ръководство за специалиста",
     lead: "Как да ползвате Мариполия в кабинета и да свържете работата си с упражненията у дома.",
     secs: [
       {h:"Какво представлява платформата", p:[
         "Мариполия е сборник от над хиляда интерактивни задачи за деца от 3 до 10 години, подредени в дванайсет области: език, логика, математика, възприятие, графомоторика, памет, внимание, концентрация, слух, емоции, скорост и творчески задачи.",
-        "Съдържанието стъпва върху авторския сборник на доц. д-р Маргарита Станкова, д.м., допълнен с нови задачи. Всяка задача носи бележка „За логопеда“ с източника и с какво работи."]},
+        "Съдържанието стъпва върху авторския сборник на доц. д-р Маргарита Станкова, д.м., допълнен с нови задачи. Всяка задача носи бележка „За специалиста“ с източника и с какво работи."]},
       {h:"Първи стъпки", l:[
-        "Регистрирайте се с „Регистрация на логопед“. Профилът се активира, след като администраторът го одобри.",
+        "Регистрирайте се с „Регистрация на специалист“. Профилът се активира, след като администраторът го одобри.",
         "В „Моите деца“ добавете дете: прякор, възрастова група и картинка. Не въвеждайте фамилия, дата на раждане или диагноза.",
         "Копирайте поканата и я изпратете на родителя. След като я приеме, той вижда детето в своя профил, а вие — напредъка."]},
       {h:"Каталогът", l:[
@@ -10071,11 +10071,11 @@ const GUIDES = {
     lead: "Как да играете заедно у дома и какво да очаквате.",
     secs: [
       {h:"Как да започнете", l:[
-        "Регистрирайте се като родител или приемете поканата от логопеда на детето.",
+        "Регистрирайте се като родител или приемете поканата от специалиста на детето.",
         "Добавете детето: прякор, възраст и картинка. Нищо друго не е нужно.",
         "Детето влиза през вашия профил — то няма собствен имейл и парола."]},
       {h:"Всеки ден", p:[
-        "В „Днес за теб“ детето намира пет задачи, подбрани според възрастта му и според това, което вече е решило. Ако логопедът е задал домашно, то излиза първо."]},
+        "В „Днес за теб“ детето намира пет задачи, подбрани според възрастта му и според това, което вече е решило. Ако специалистът е задал домашно, то излиза първо."]},
       {h:"Как да седите до детето", l:[
         "Оставете го да опита само, преди да подскажете. Грешката е част от ученето.",
         "Назовавайте на глас: „това е кошница, а това е чиния“ — думите правят задачата езикова.",
@@ -10086,7 +10086,7 @@ const GUIDES = {
         "Правете задачата заедно, с вашата ръка върху неговата при проследяването.",
         "Ако едно и също затруднение се повтаря седмици наред, покажете го на специалист."]},
       {h:"Как се справя детето ми", p:[
-        "От екрана на детето отваряте картина по области: какво върви леко и какво си струва да се поупражни. Може да я разпечатате или да копирате текста и да го пратите на логопеда.",
+        "От екрана на детето отваряте картина по области: какво върви леко и какво си струва да се поупражни. Може да я разпечатате или да копирате текста и да го пратите на специалиста.",
         "Това е картина на играта, а не тест и не диагноза. Не сравнявайте детето с други деца по нея."]},
       {h:"Работни листове за печат", l:[
         "Ако искате детето да работи и на хартия, от „Работни листове за печат“ избирате клас и тема и разпечатвате лист.",
@@ -10105,7 +10105,7 @@ function guideScreen(role="parent"){
   const G = GUIDES[role];
   const u = me();
   const tabs = u && u.role!=="roditel"
-    ? [["logoped","За логопеда"],["teacher","За учителя"],["parent","За родителя"]]
+    ? [["logoped","За специалиста"],["teacher","За учителя"],["parent","За родителя"]]
     : [["parent","За родителя"]];
   setHead(u && u.role==="roditel" ? "Родител" : "Кабинет", "Ръководство", false); whoChip();
   const d = screen(`<div class="guide">
@@ -10158,7 +10158,7 @@ if(_adminHome) adminHome = function(msg=""){
   const p = document.createElement("p");
   p.className = "alinks"; p.style.marginTop = "18px";
   const b = document.createElement("button");
-  b.type="button"; b.className="lnk"; b.textContent = "Ръководствата (логопед, учител, родител)";
+  b.type="button"; b.className="lnk"; b.textContent = "Ръководствата (специалист, учител, родител)";
   b.onclick = () => guideScreen("logoped");
   p.appendChild(b); d.appendChild(p);
 };
@@ -10775,7 +10775,7 @@ function landing(){
         <button class="lbtn g" type="button" data-go="login">Вход</button>
       </div>
       <ul class="l-pills"><li>Първите 5 задачи са безплатни</li><li>Нищо за инсталиране</li><li>Без реклами</li></ul>
-      <p class="l-small">Нямате профил? <button type="button" data-go="reg-roditel">Регистрация на родител</button> или <button type="button" data-go="reg-logoped">на логопед</button></p>
+      <p class="l-small">Нямате профил? <button type="button" data-go="reg-roditel">Регистрация на родител</button> или <button type="button" data-go="reg-logoped">на специалист</button></p>
     </div>
     <div>
       <div class="l-scene" id="lscene">
@@ -10807,8 +10807,8 @@ function landing(){
         <p>Детето избира, подрежда, свързва и проследява с пръст — и не усеща, че учи.</p></div>
       <div class="l-card"><div class="ic bg-mint">${lImg("snail")}</div><h3>Точно следващата стъпка</h3>
         <p>Платформата помни какво е решило детето и всеки ден подбира подходящ кратък набор задачи.</p></div>
-      <div class="l-card"><div class="ic bg-lilac">${lImg("key")}</div><h3>Логопед и семейство заедно</h3>
-        <p>Логопедът кани родителя и дава домашно с един линк. Детето упражнява у дома, логопедът вижда резултата.</p></div>
+      <div class="l-card"><div class="ic bg-lilac">${lImg("key")}</div><h3>Специалист и семейство заедно</h3>
+        <p>Специалистът кани родителя и дава домашно с един линк. Детето упражнява у дома, специалистът вижда резултата.</p></div>
       <div class="l-card"><div class="ic bg-butter">${lImg("book")}</div><h3>Авторско съдържание</h3>
         <p>В основата е сборникът с упражнения на доц. д-р Маргарита Станкова, д.м., допълнен с нови задачи.</p></div>
     </div>
@@ -10852,7 +10852,7 @@ function landing(){
     <p class="intro">Регистрацията отнема минута. След това детето влиза само с едно докосване.</p>
     <div class="l-steps">
       <div class="l-step"><div class="num bg-peach">1</div><h3>Създайте профил</h3>
-        <p>Регистрирайте се като родител или приемете поканата от своя логопед.</p></div>
+        <p>Регистрирайте се като родител или приемете поканата от своя специалист.</p></div>
       <div class="l-step"><div class="num bg-mint">2</div><h3>Добавете детето</h3>
         <p>Само прякор, възраст и любима картинка. Без фамилия, дата на раждане или диагноза.</p></div>
       <div class="l-step"><div class="num bg-sky">3</div><h3>Играйте всеки ден</h3>
@@ -10864,13 +10864,13 @@ function landing(){
   <section class="l-sec"><div class="lw">
     <p class="l-eyebrow">За кого</p>
     <h2>Удобно и за малки, и за големи</h2>
-    <p class="intro">Едно място за детето, което играе, за родителя до него и за логопеда, който води работата.</p>
+    <p class="intro">Едно място за детето, което играе, за родителя до него и за специалиста, който води работата.</p>
     <div class="l-who">
       <div class="l-card"><div class="top bg-mint">${lImg("eli-stand")}${lImg("martin-running")}</div><h3>За децата</h3>
         <ul><li>Големи картинки и бутони за малки пръсти</li><li>Избери, подреди, свържи или проследи с пръст</li><li>Играе се на телефон, таблет и компютър</li></ul></div>
       <div class="l-card"><div class="top bg-peach">${lImg("mama-stand")}</div><h3>За родителите</h3>
         <ul><li>Отделен профил за всяко дете</li><li>Готов набор задачи за деня</li><li>Виждате какво е решено и къде има нужда от още упражнения</li></ul></div>
-      <div class="l-card"><div class="top bg-lilac">${lImg("teacher")}</div><h3>За логопедите</h3>
+      <div class="l-card"><div class="top bg-lilac">${lImg("teacher")}</div><h3>За специалистите</h3>
         <ul><li>Каталог с упражнения по област и възраст</li><li>Домашно за детето с един линк</li><li>Напредъкът на всички деца на едно място</li></ul></div>
     </div>
   </div></section>
@@ -10915,12 +10915,12 @@ function landing(){
       <ol class="ml">
         <li><b>Развитийна рамка</b><span>Дванайсет области — език, памет, внимание, концентрация, слух, емоции, скорост, логическо мислене, ранна математика, зрително възприятие, графомоторика и творчески задачи — всяка с отделни възрастови групи.</span></li>
         <li><b>Постепенност</b><span>Задачите вървят от по-лесно към по-трудно, а следващата се подбира според резултатите на детето.</span></li>
-        <li><b>Участие на семейството</b><span>Родителят упражнява с детето у дома между срещите с логопеда, по задачи, които логопедът е избрал.</span></li>
-        <li><b>Проследяване на напредъка</b><span>Всяко решение се записва; логопедът вижда обобщение по области и може да промени плана.</span></li>
-        <li><b>Дистанционна подкрепа</b><span>Домашните задачи и напредъкът са достъпни онлайн, така че логопедът остава до детето и от разстояние.</span></li>
+        <li><b>Участие на семейството</b><span>Родителят упражнява с детето у дома между срещите с специалиста, по задачи, които специалистът е избрал.</span></li>
+        <li><b>Проследяване на напредъка</b><span>Всяко решение се записва; специалистът вижда обобщение по области и може да промени плана.</span></li>
+        <li><b>Дистанционна подкрепа</b><span>Домашните задачи и напредъкът са достъпни онлайн, така че специалистът остава до детето и от разстояние.</span></li>
       </ol>
     </div>
-    <p class="l-note">Упражненията подпомагат, но не заместват консултацията и терапията при логопед.</p>
+    <p class="l-note">Упражненията подпомагат, но не заместват консултацията и терапията при специалист.</p>
   </div></section>
 
   <section class="l-sec" style="padding-top:12px"><div class="lw">
@@ -10929,7 +10929,7 @@ function landing(){
     <div class="l-safe" style="margin-top:24px">
       <div>${L_CHECK}<p><b>Само прякор и възраст</b>За детето не пазим фамилия, дата на раждане или диагноза.</p></div>
       <div>${L_CHECK}<p><b>Без имейл за детето</b>Детето влиза през профила на родителя.</p></div>
-      <div>${L_CHECK}<p><b>Всеки вижда своето</b>Логопедът вижда само децата, с които работи. Администраторът не вижда резултати.</p></div>
+      <div>${L_CHECK}<p><b>Всеки вижда своето</b>Специалистът вижда само децата, с които работи. Администраторът не вижда резултати.</p></div>
       <div>${L_CHECK}<p><b>Изтриване по всяко време</b>Профил на дете или целия акаунт можете да изтриете сами.</p></div>
     </div>
     <p class="l-small">Сега платформата е в пробен режим: данните се пазят само в този браузър.</p>
@@ -10959,7 +10959,7 @@ function landing(){
       <p>Пет задачи — по една от всяка област. Без регистрация, нищо не се записва.</p>
       <div class="l-cta cta">
         <button class="lbtn p" type="button" data-go="trial">Опитайте сега <span class="ar">→</span></button>
-        <button class="lbtn g" type="button" data-go="login">Вход за родители и логопеди</button>
+        <button class="lbtn g" type="button" data-go="login">Вход за родители и специалисти</button>
       </div>
     </div>
   </div></section>
@@ -11684,7 +11684,7 @@ finish = function(){
   _finishSR();
 };
 
-/* входове: начална страница, родител, логопед */
+/* входове: начална страница, родител, специалист */
 const _landSR = landing;
 landing = function(){
   _landSR();
@@ -11730,7 +11730,7 @@ const SEC = [
   [/готов за училище/i, "#4CAF6D", ["martin-up","backpack s","eli-up","pencil xs"]],
   [/работни листове/i,  "#F2A93B", ["pencil s","eli-stand","book s","scissors xs"]],
   [/днес за теб|да поиграем|домашна|проба/i, "#7E57C2", ["martin-running","kite s","eli-up","ball xs"]],
-  [/кабинет|логопед|администратор/i, "#2E7CC4", ["eli-stand","daisy s","martin-stand","book xs"]],
+  [/кабинет|специалист|администратор/i, "#2E7CC4", ["eli-stand","daisy s","martin-stand","book xs"]],
   [/родител|профил|вход|регистрац|покана|парола/i, "#D86090", ["mama-stand","eli-stand","martin-stand s","daisy xs"]],
   [/./, "#F6D64A", ["eli-stand","daisy s","martin-stand","sun xs"]]
 ];
