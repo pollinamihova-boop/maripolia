@@ -832,6 +832,97 @@ body.landing-on header, body.landing-on .wrap{display:none!important}
 }
 @media (max-width:440px){ .wspaper{zoom:.34} }
 
+
+/* ============ ГОТОВ ЗА УЧИЛИЩЕ ============ */
+.srui{max-width:980px;margin:0 auto}
+.srtools{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 8px}
+.srgrp{margin-top:26px}
+.srgrp h3{font-family:"Literata",serif;font-size:21px;font-weight:600;margin:0 0 2px;color:var(--ink)}
+.srgrp .mut{margin:0 0 12px;font-size:14.5px}
+.srtiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+.srtile{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:16px;
+  padding:12px 10px 12px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;
+  align-items:center;gap:8px;min-height:150px;touch-action:manipulation;transition:transform .15s}
+.srtile:hover{transform:translateY(-2px);border-color:var(--accent)}
+.srtile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.srti{width:84px;height:84px;display:grid;place-items:center}
+.srti svg,.srti img{width:100%;height:100%;object-fit:contain;max-width:84px}
+.srtt{font-family:"Literata",serif;font-weight:600;font-size:15px;line-height:1.25;text-align:center}
+.srtile .done{position:absolute;top:9px;right:10px;width:22px;height:22px;border-radius:50%;
+  background:var(--ok);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700}
+.srwin{text-align:center;font-family:"Literata",serif;font-size:22px;font-weight:600;color:var(--ok);margin:14px 0 0}
+.srscene{display:flex;align-items:flex-end;justify-content:center;gap:8px;flex-wrap:wrap}
+.srpic{display:inline-block}
+.srpic img,.srpic svg{width:100%;height:auto;display:block}
+.srpic.gone{opacity:.25;filter:grayscale(1)}
+.srarr{font-family:"Literata",serif;font-size:26px;color:var(--muted);align-self:center;white-space:nowrap}
+.l-sr{margin-top:6px}
+
+/* графична диктовка */
+.gdchips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px}
+.gdc{display:inline-flex;gap:1px;padding:5px 9px;border-radius:9px;background:var(--surface-2);
+  border:2px solid var(--rule);font-size:21px;font-weight:700;line-height:1;color:var(--muted)}
+.gdc.c{border-color:#7E57C2;color:#7E57C2;background:color-mix(in srgb,#7E57C2 12%,var(--surface))}
+.gdc.d{opacity:.38}
+.gdc i{font-style:normal}
+.gdc i.dn{opacity:.3}
+.gdc.shake{animation:srshake .35s}
+@keyframes srshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.gdwrap{display:flex;justify-content:center;overflow-x:auto}
+.gdgrid{width:100%;height:auto;display:block;background:var(--surface);border-radius:8px}
+.gdpad{display:grid;grid-template-columns:repeat(3,64px);gap:8px;justify-content:center;margin-top:16px}
+.gdpad .key{width:64px;height:64px;font-size:30px}
+.gdpad .gdsay{display:grid;place-items:center;font-size:0}
+.gdpad .gdsay svg{width:26px;height:26px}
+.gdpad .key[disabled]{opacity:.35}
+
+/* ден и нощ, светофар */
+.dnrule{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:8px}
+.dnr{display:flex;align-items:center;gap:8px;background:var(--surface-2);border-radius:14px;padding:8px 12px}
+.dnc{width:74px;height:74px;display:block}
+.dnc svg{width:100%;height:100%}
+.dnarr{font-size:26px;color:var(--muted);font-family:"Literata",serif}
+.dnbig{width:min(220px,60vw);margin:6px auto 18px}
+.dnbig svg{width:100%;height:auto;display:block}
+.dnbtn{width:132px}
+.dnbtn svg{max-width:96px}
+
+/* история и избор */
+.tomrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:18px}
+.tomp{margin:0;background:var(--surface-2);border-radius:14px;padding:10px 12px 12px;width:min(220px,100%);
+  border:2px solid transparent;display:flex;flex-direction:column;gap:6px;position:relative}
+.tomp.cur{border-color:#7E57C2}
+.tomp .ordnum{position:absolute;top:6px;left:10px}
+.tompic{min-height:110px;display:flex;align-items:flex-end;justify-content:center}
+.tomp figcaption{font-size:15px;line-height:1.4;text-align:center}
+.socopts{display:grid;gap:10px;max-width:560px;margin:0 auto}
+.socopt{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;font-size:16.5px;line-height:1.35;
+  background:var(--surface-2);border:3px solid var(--rule);border-radius:14px;padding:10px 14px;cursor:pointer;color:inherit;min-height:64px}
+.socopt[data-state="ok"]{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.socopt[data-state="no"]{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+.soci{flex:0 0 44px;width:44px;height:44px}
+.soci svg,.soci img{width:100%;height:100%}
+
+/* чудовище */
+.monwrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center}
+.monbig{width:min(240px,70vw)}
+.monbig svg{width:100%;height:auto;display:block}
+.monctl{display:grid;gap:10px}
+.monrow{display:grid;grid-template-columns:62px 48px 150px 48px 48px;gap:6px;align-items:center}
+.monrow .key{width:48px;height:48px;font-size:24px}
+.monl{font-weight:600;font-size:14px;color:var(--muted)}
+.monn{text-align:center;font-size:14.5px;font-weight:500}
+.monsw{width:44px;height:44px}
+@media (max-width:480px){.monrow{grid-template-columns:52px 44px 1fr 44px 40px}.monrow .key{width:44px;height:44px}}
+
+/* идеи и памет */
+.usebulbs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 0 14px;font-size:30px}
+.bulb{opacity:.18;filter:grayscale(1)}
+.bulb.on{opacity:1;filter:none;animation:srpop .3s}
+@keyframes srpop{50%{transform:scale(1.3)}}
+.spanin{width:190px!important;animation:srpop .35s}
+.spanin img,.spanin svg{max-width:160px!important}
+
 /* ============ 1. СВЪРЖИ ПО РЕД ============ */
 .trail{position:relative;width:100%;aspect-ratio:4/3;max-width:560px;margin:0 auto;
   background:var(--surface-2);border-radius:16px}
@@ -4875,7 +4966,7 @@ const AGE={
 };
 EX.forEach(e=>e.age=AGE[e.id]||"—");
 
-const GOALS=["Всички","Език","Логика","Възприятие","Математика","Графомоторика","Памет","Внимание","Концентрация","Таланти","Слух","Емоции","Скорост"];
+const GOALS=["Всички","Език","Логика","Възприятие","Математика","Графомоторика","Памет","Внимание","Концентрация","Таланти","Слух","Емоции","Скорост","Готов за училище"];
 const AGES=["Всички възрасти","3–4","4–5","5–6","6–7","7–8","9–10"];
 const SHAPE={o:()=>ART.circle(C.blue),d:()=>ART.square(C.yellow),t:()=>ART.triangle(C.red)};
 
@@ -4888,9 +4979,12 @@ const save=()=>{try{localStorage.setItem("lg-done",JSON.stringify(done))}catch(e
 let MODE="office", pickMode=false, chosen=[], run=null;
 
 /* --- кодиране на домашната работа в линка --- */
-const IDX=EX.map(e=>e.id);
-const encHW=ids=>ids.map(i=>IDX.indexOf(i).toString(36)).join("");
-const decHW=s=>[...s].map(c=>IDX[parseInt(c,36)]).filter(Boolean);
+/* Списъкът расте и след този ред (нови партиди) — затова индексът се опреснява при всяко ползване. */
+const IDX=[];
+const ix=()=>{ if(IDX.length!==EX.length){ IDX.length=0; EX.forEach(e=>IDX.push(e.id)) } return IDX };
+const encHW=ids=>ids.map(i=>ix().indexOf(i)).filter(n=>n>=0).map(n=>n.toString(36).padStart(3,"0")).join("");
+const decHW=s=>[...s].map(c=>ix()[parseInt(c,36)]).filter(Boolean);
+const decHZ=s=>(s.match(/.{3}/g)||[]).map(c=>ix()[parseInt(c,36)]).filter(Boolean);
 
 /* --- код на резултата: брой задачи + опити на всяка --- */
 function makeCode(res){
@@ -4907,7 +5001,7 @@ function readCode(code){
 
 const mark=id=>{
   if(!done[id]){done[id]=1;save()}
-  if(run){ run.res[run.i]=Math.min(9,(run.att[run.i]||0)+1); setTimeout(nextTask,900) }
+  if(run){ run.res[run.i]=Math.min(9,(run.att[run.i]||0)+1); const r0=run, i0=run.i; setTimeout(()=>{ if(run===r0 && run.i===i0) nextTask() },900) }
   upd();
 };
 const upd=()=>{const n=document.getElementById("stat");if(n)
@@ -4932,7 +5026,7 @@ function modebar(){
   }
 }
 function makeLink(){
-  const url=location.origin+location.pathname+"#hw="+encHW(chosen);
+  const url=location.origin+location.pathname+"#hz="+encHW(chosen);
   const list=chosen.map((id,i)=>{const e=EX.find(x=>x.id===id);
     return `<li>${e.title} <span class="mut">· ${e.g.toLowerCase()}</span></li>`}).join("");
   document.getElementById("list").hidden=true;
@@ -5002,7 +5096,8 @@ const stems = t => { const a=[t];
   if(t.length>=6) a.push(t.slice(0,-2));
   return a };
 const qhit = e => { if(!q) return true; const h=hay(e); return stems(q).some(x=>h.includes(x)) };
-const match=e=>(filter==="Всички"||e.g===filter)&&(fAge==="Всички възрасти"||e.age===fAge)&&qhit(e);
+function gOk(e,g){return g==="Всички"||e.g===g||(g==="Готов за училище"&&!!e.sr)}
+const match=e=>gOk(e,filter)&&(fAge==="Всички възрасти"||e.age===fAge)&&qhit(e);
 
 /* подчертава намереното в текста на картата */
 const mark_=(t,s)=>{
@@ -5046,11 +5141,11 @@ function tabs(){
   const n=document.getElementById("tabs");
   n.innerHTML=
     `<div class="tabrow">`+GOALS.map(g=>{
-      const c=EX.filter(e=>(g==="Всички"||e.g===g)&&(fAge==="Всички възрасти"||e.age===fAge)&&qhit(e)).length;
+      const c=EX.filter(e=>gOk(e,g)&&(fAge==="Всички възрасти"||e.age===fAge)&&qhit(e)).length;
       return `<button type="button" data-k="g" data-v="${g}" aria-pressed="${g===filter}"
         ${c?"":"disabled"}>${g}<span class="cnt">${c}</span></button>`}).join("")+`</div>
      <div class="tabrow ages">`+AGES.map(a=>{
-      const c=EX.filter(e=>(filter==="Всички"||e.g===filter)&&(a==="Всички възрасти"||e.age===a)&&qhit(e)).length;
+      const c=EX.filter(e=>gOk(e,filter)&&(a==="Всички възрасти"||e.age===a)&&qhit(e)).length;
       return `<button type="button" data-k="a" data-v="${a}" aria-pressed="${a===fAge}"
         ${c?"":"disabled"}>${a==="Всички възрасти"?a:a+" г."}<span class="cnt">${c}</span></button>`}).join("")+`</div>`;
   n.querySelectorAll("button").forEach(b=>b.onclick=()=>{
@@ -9820,7 +9915,7 @@ tabs = function(){
   const row = document.createElement("div");
   row.className = "tabrow cls";
   row.innerHTML = `<span class="clslbl">по клас:</span>` + CLASSES.map((c,i) => {
-    const cnt = EX.filter(e => c.ages.includes(e.age) && (filter==="Всички"||e.g===filter) && qhit(e)).length;
+    const cnt = EX.filter(e => c.ages.includes(e.age) && gOk(e,filter) && qhit(e)).length;
     return `<button type="button" data-c="${i}" aria-pressed="${fClass===i}" ${cnt?"":"disabled"}>${c.l}
       <span class="cnt">${cnt}</span></button>`}).join("") +
     (fClass!==null ? `<button type="button" data-c="x" class="clsx">× изчисти</button>` : "");
@@ -10323,6 +10418,106 @@ const SHEETS = [
       <div style="font:400 14pt Literata,Georgia,serif;margin-bottom:5mm">${s}</div>
       ${wline()}${wline()}</div>`).join("")};
 }}
+,
+/* ---------- ГОТОВ ЗА УЧИЛИЩЕ: листове за 5–6 години ---------- */
+{k:"sr-gdict", l:"Графична диктовка", cls:[1], make(r,c){
+  const D = window.SR.DICT, keys = sh(r,["teeth","comb","snake","wall"]).slice(0,2);
+  const strip = k => { const d = D[k], mv = window.SR.moves(d.s), G = window.SR.groups(mv);
+    return G.map(g => `<b style="font-size:15pt;margin-right:3mm;white-space:nowrap">${g.n}${window.SR.ARR[g.d]}</b>`).join("") };
+  const grid = (k) => { const d = D[k], W = 34, H = d.H + 2, CS = 5;
+    let g = ""; for(let i=0;i<=W;i++) g += `<line x1="${i*CS}" y1="0" x2="${i*CS}" y2="${H*CS}"/>`;
+    for(let j=0;j<=H;j++) g += `<line x1="0" y1="${j*CS}" x2="${W*CS}" y2="${j*CS}"/>`;
+    return `<svg viewBox="-1 -1 ${W*CS+2} ${H*CS+2}" style="width:100%;display:block;margin:2mm 0 8mm">
+      <g stroke="#9a9a9a" stroke-width=".35">${g}</g><circle cx="${CS*1}" cy="${CS*(d.y+1)}" r="1.4" fill="#000"/></svg>` };
+  return {title:"Графична диктовка", instr:"Започни от точката. Числото казва колко клетки, стрелката — накъде. Продължи шарката сам до края на реда.",
+    body: keys.map(k => `<div style="margin:0 0 2mm">${txt(D[k].n,13)}</div><div>${strip(k)} <span style="font-size:11pt">… и пак отначало</span></div>${grid(k)}`).join(""),
+    foot:"Водещият може и да диктува на глас: „две клетки нагоре, една надясно…“"};
+}},
+
+{k:"sr-bunny", l:"Огради зайчетата", cls:[0,1], make(r,c){
+  const kinds = ["uu","ud","du","dd"], n = ri(r,7,10);
+  const arr = sh(r, Array.from({length:30},(_,i)=> i<n ? "uu" : pk(r,kinds.slice(1))));
+  const b = s => `<span style="display:inline-block;width:22mm;height:22mm">${window.SR.bunny(s[0],s[1])}</span>`;
+  return {title:"Огради зайчетата", instr:"Огради всяко зайче, което е вдигнало и двете си уши — като това:",
+    lead:`<span style="display:inline-block;border:1.2pt solid #000;border-radius:3mm;padding:1mm">${b("uu")}</span>`,
+    body:`<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4mm;justify-items:center">${arr.map(b).join("")}</div>`,
+    foot:`Отговор: ${n}`};
+}},
+
+{k:"sr-copy", l:"Препиши точките", cls:[0,1,2], make(r,c){
+  const N = 4, S = 9, rows = 3;
+  const pat = () => { let x = ri(r,0,N-1), y = ri(r,0,N-1); const p = [[x,y]];
+    for(let i=0;i<(c<1?3:5);i++){ const opt = [[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,-1],[1,-1],[-1,1]]
+        .map(([a,b])=>[x+a,y+b]).filter(([a,b])=>a>=0&&b>=0&&a<N&&b<N&&!p.some(q=>q[0]===a&&q[1]===b));
+      if(!opt.length) break; [x,y] = pk(r,opt); p.push([x,y]) } return p };
+  const dots = (p) => `<svg viewBox="-6 -6 ${(N-1)*S+12} ${(N-1)*S+12}" style="width:46mm;display:block">
+    ${Array.from({length:N*N},(_,i)=>`<circle cx="${(i%N)*S}" cy="${Math.floor(i/N)*S}" r="1.3" fill="#000"/>`).join("")}
+    ${p?`<polyline points="${p.map(([x,y])=>`${x*S},${y*S}`).join(" ")}" fill="none" stroke="#000" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>`:""}</svg>`;
+  return {title:"Препиши точките", instr:"Начертай в дясното каре същата линия като в лявото.",
+    body: Array.from({length:rows},()=>`<div style="display:flex;justify-content:space-around;align-items:center;margin:0 0 9mm">
+      ${dots(pat())}<span style="font-size:22pt">→</span>${dots(null)}</div>`).join("")};
+}},
+
+{k:"sr-faces", l:"Нарисувай лицата", cls:[0,1], make(r,c){
+  const F = sh(r,["весело","тъжно","сърдито","уплашено"]);
+  const circ = (w,mm=40) => `<div style="text-align:center"><svg viewBox="0 0 100 100" style="width:${mm}mm;display:block;margin:0 auto">
+    <circle cx="50" cy="50" r="46" fill="#fff" stroke="#000" stroke-width="1.6"/></svg>${txt(w,13)}</div>`;
+  return {title:"Нарисувай лицата", instr:"Нарисувай във всеки кръг лице, което е такова, каквото пише отдолу.",
+    body:`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm 6mm;margin-bottom:8mm">${F.map(w=>circ(w)).join("")}</div>
+      <div style="border-top:0.6pt dashed #999;padding-top:6mm">${circ("Аз днес",52)}</div>`};
+}},
+
+{k:"sr-doodle", l:"Довърши рисунката", cls:[0,1,2], make(r,c){
+  const SH = {
+    circle:'<circle cx="50" cy="50" r="18"/>', zig:'<path d="M20 58 L32 42 L44 58 L56 42 L68 58 L80 42"/>',
+    tri:'<path d="M50 30 L70 68 H30 Z"/>', lines:'<path d="M40 28 V72 M60 28 V72"/>',
+    wave:'<path d="M18 50 Q28 36 38 50 Q48 64 58 50 Q68 36 78 50"/>', dots:'<circle cx="38" cy="48" r="3" fill="#000"/><circle cx="62" cy="48" r="3" fill="#000"/>',
+    arc:'<path d="M28 62 Q50 26 72 62"/>', square:'<rect x="36" y="36" width="28" height="28"/>',
+    blob:'<path d="M42 36 C56 26 74 40 66 54 C60 66 40 68 38 56 C36 48 36 42 42 36"/>' };
+  const ks = sh(r,Object.keys(SH)).slice(0,6);
+  return {title:"Довърши рисунката", instr:"Превърни всяка линия в картинка. Какво може да стане от нея?",
+    body:`<div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm">${ks.map(k=>
+      `<div style="border:1pt solid #000;border-radius:3mm;height:68mm;display:grid;place-items:center">
+        <svg viewBox="0 0 100 100" style="width:52mm" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round">${SH[k]}</svg></div>`).join("")}</div>`};
+}},
+
+{k:"sr-ideas", l:"Какво може да стане от кръга", cls:[0,1,2,3], make(r,c){
+  return {title:"Какво може да стане от кръга?", instr:"Превърни всеки кръг в нещо различно: слънце, топка, лице… Колкото повече идеи, толкова по-добре!",
+    body:`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:9mm 4mm;justify-items:center;margin-top:4mm">${
+      Array.from({length:16},()=>`<svg viewBox="0 0 100 100" style="width:34mm"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#000" stroke-width="1.6"/></svg>`).join("")}</div>`};
+}},
+
+{k:"sr-monster", l:"Измисли чудовище", cls:[0,1,2], make(r,c){
+  const h = ri(r,0,5), b = ri(r,0,5), l = ri(r,0,5), P = window.SR.part;
+  const card = (svg,lbl) => `<div style="text-align:center"><div style="width:34mm;height:28mm;border:1pt solid #000;border-radius:3mm;display:grid;place-items:center;padding:2mm">
+    <span style="display:block;width:28mm">${svg}</span></div>${txt(lbl,11)}</div>`;
+  return {title:"Измисли чудовище", instr:"Нарисувай чудовище с тези части. Измисли му име!",
+    lead:`<div style="display:flex;align-items:center;gap:4mm">${card(P("h",h),"глава")}<b style="font-size:20pt">+</b>${card(P("b",b),"тяло")}<b style="font-size:20pt">+</b>${card(P("l",l),"крака")}</div>`,
+    body:`<div style="border:1pt solid #000;border-radius:4mm;height:150mm"></div>
+      <div style="margin-top:6mm;font-size:13pt">Казва се: ________________________________</div>`};
+}},
+
+{k:"sr-person", l:"Нарисувай човек", cls:[0,1], make(r,c){
+  return {title:"Нарисувай човек", instr:"Нарисувай човек — цял, от главата до краката. Нарисувай го както можеш най-хубаво.",
+    body:`<div style="border:1pt solid #000;border-radius:4mm;height:205mm"></div>`,
+    foot:"За водещия: брои се колко части има (глава, тяло, ръце, крака, пръсти, лице) — само за наблюдение."};
+}},
+
+{k:"sr-guide", l:"Игри без компютър (за водещия)", cls:[1], make(r,c){
+  const G = [
+    ["Ден и нощ","Покажете картонче със слънце или луна. Децата казват обратното: на слънцето — „нощ“, на луната — „ден“. 12–16 картончета, бързо."],
+    ["Светофар","Зелено — децата тичат на място, червено — замръзват. Сменяйте неочаквано. Който се помръдне на червено, просто започва отначало."],
+    ["Главата, раменете","Казвате „глава“, децата пипат краката, и обратно. После „рамене“ и „колене“. Първо бавно, после по-бързо."],
+    ["Какво изчезна?","6–8 предмета на масата. Децата затварят очи, махате един. Кой се сети пръв? После махате два."],
+    ["Повтори хлопките","Пляскате ритъм (силно-тихо-тихо). Децата го повтарят. Всеки път с по един удар повече."],
+    ["Огледалото","По двойки: едното дете прави бавни движения, другото е „огледало“. После сменят."],
+    ["Изпрати шепота","Кажете шепнешком дума на първото дете, то я предава нататък. Каква дума стигна до края?"],
+    ["Термометър на настроението","В началото и в края всяко дете показва с палец (нагоре, настрани, надолу) как се чувства."]];
+  return {title:"Игри без компютър", instr:"За водещия. Подходящи за група от 8–12 деца на 5–6 години.",
+    body:`<p style="font-size:11.5pt;margin:0 0 4mm"><b>Как да подредите 40 минути:</b> четири станции по 10 минути — екран, работен лист, игра в кръг, рисуване. Децата се сменят по знак (камбанка). Така не са нужни компютри за всички.</p>
+      <ol style="margin:0;padding-left:6mm;font-size:11.5pt;line-height:1.5">${G.map(([t,d])=>`<li style="margin:0 0 3mm"><b>${t}.</b> ${d}</li>`).join("")}</ol>
+      <p style="font-size:10.5pt;margin:4mm 0 0;color:#333">Игрите не са тестове. Наблюденията са за водещия — не се казват на детето като оценка и не се сравняват децата помежду им.</p>`};
+}},
 
 ];
 
@@ -10784,13 +10979,721 @@ const _lRoute = route;
 route = function(){ leaveLanding(); _lRoute() };
 logout = function(){ USER=null; LS.sset("lg-user",null); run=null; MODE="office"; landing() };
 
+/* =================== ГОТОВ ЗА УЧИЛИЩЕ (5–6 години) ===================
+   Игри по принципите на задачите за училищна готовност: графична
+   диктовка, самоконтрол („Ден и нощ“, светофар), памет за поредица,
+   внимание, чувства и приятели, творчество. Без точки и етикети —
+   само игра. Всяка игра има и печатен лист (виж РАБОТНИ ЛИСТОВЕ).
+   Отваря се и без вход: maripolia.bg/#gotov
+======================================================================= */
+window.SR = (function(){
+const INK = "#181818";
+const sv = (inner, vb="0 0 100 100") =>
+  `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="${INK}" stroke-width="3"
+    stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+
+/* ---------- зайче с уши: "u" вдигнато, "d" клепнало ---------- */
+function bunny(l="u", r="u", fill="#FFFFFF"){
+  const ear = (side, st) => {
+    const x = side<0 ? 39 : 61;
+    if(st==="u") return `<ellipse cx="${x}" cy="27" rx="7.5" ry="19" fill="${fill}" transform="rotate(${side*9} ${x} 44)"/>
+      <ellipse cx="${x}" cy="29" rx="3.2" ry="12" fill="#F2A7B8" stroke="none" transform="rotate(${side*9} ${x} 44)"/>`;
+    return `<ellipse cx="${x}" cy="27" rx="7.5" ry="19" fill="${fill}" transform="rotate(${side*118} ${x} 46)"/>
+      <ellipse cx="${x}" cy="29" rx="3.2" ry="12" fill="#F2A7B8" stroke="none" transform="rotate(${side*118} ${x} 46)"/>`;
+  };
+  return sv(ear(-1,l) + ear(1,r) +
+    `<circle cx="50" cy="62" r="23" fill="${fill}"/>
+     <circle cx="42" cy="58" r="2.6" fill="${INK}" stroke="none"/><circle cx="58" cy="58" r="2.6" fill="${INK}" stroke="none"/>
+     <path d="M47 66 h6 l-3 3 z" fill="#E77A92" stroke-width="1.6"/>
+     <path d="M44 72 q6 4 12 0" stroke-width="2.4"/>`);
+}
+
+/* ---------- рибка, обърната наляво или надясно ---------- */
+function fish(dir="r", fill="#7FB8E8"){
+  const g = `<path d="M22 50 q22 -24 48 0 q-26 24 -48 0 z" fill="${fill}"/>
+    <path d="M70 50 l16 -12 v24 z" fill="${fill}"/>
+    <circle cx="33" cy="47" r="2.8" fill="${INK}" stroke="none"/>
+    <path d="M45 40 q5 10 0 20" stroke-width="2.2"/>`;
+  return sv(dir==="l" ? g : `<g transform="translate(100 0) scale(-1 1)">${g}</g>`);
+}
+
+/* ---------- звездичка с или без точка ---------- */
+function starDot(dot=true, fill="#F6D64A"){
+  const pts = Array.from({length:10},(_,i)=>{ const a=(i*36-90)*Math.PI/180, r=i%2?17:38;
+    return `${(50+r*Math.cos(a)).toFixed(1)},${(52+r*Math.sin(a)).toFixed(1)}` }).join(" ");
+  return sv(`<polygon points="${pts}" fill="${fill}"/>` + (dot ? `<circle cx="50" cy="53" r="6" fill="${INK}" stroke="none"/>` : ""));
+}
+
+/* ---------- ден и нощ ---------- */
+const SUNC = () => sv(`<rect x="6" y="6" width="88" height="88" rx="16" fill="#CDEBFF"/>
+  <circle cx="50" cy="50" r="17" fill="#F6C33A"/>
+  ${Array.from({length:8},(_,i)=>{const a=i*45*Math.PI/180;
+    return `<line x1="${50+24*Math.cos(a)}" y1="${50+24*Math.sin(a)}" x2="${50+33*Math.cos(a)}" y2="${50+33*Math.sin(a)}" stroke="#E0A21A" stroke-width="4"/>`}).join("")}`);
+const MOONC = () => sv(`<rect x="6" y="6" width="88" height="88" rx="16" fill="#2E3B6E"/>
+  <path d="M58 22 a29 29 0 1 0 18 48 a23 23 0 1 1 -18 -48 z" fill="#F6D64A" stroke="#C9A62A"/>
+  <path d="M26 26 l2 5 5 1 -5 2 -2 5 -2 -5 -5 -2 5 -1 z" fill="#FFF6C8" stroke="none"/>
+  <path d="M74 72 l1.5 4 4 1 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1 z" fill="#FFF6C8" stroke="none"/>`);
+const ARROW = d => sv(`<rect x="6" y="6" width="88" height="88" rx="16" fill="#FFF4D6"/>
+  <g transform="rotate(${{u:0,r:90,d:180,l:270}[d]} 50 50)">
+    <path d="M50 18 L76 48 H60 V82 H40 V48 H24 Z" fill="#7E57C2"/></g>`);
+const LIGHT = on => sv(`<rect x="30" y="6" width="40" height="88" rx="12" fill="#3A3A3A"/>
+  <circle cx="50" cy="29" r="12" fill="${on==="red"?"#E8502F":"#6B6B6B"}" stroke="#222"/>
+  <circle cx="50" cy="71" r="12" fill="${on==="green"?"#4CAF6D":"#6B6B6B"}" stroke="#222"/>`);
+const FROG = () => sv(`<ellipse cx="50" cy="62" rx="30" ry="22" fill="#4CAF6D"/>
+  <circle cx="36" cy="38" r="11" fill="#4CAF6D"/><circle cx="64" cy="38" r="11" fill="#4CAF6D"/>
+  <circle cx="36" cy="37" r="5" fill="#fff"/><circle cx="64" cy="37" r="5" fill="#fff"/>
+  <circle cx="37" cy="38" r="2.4" fill="${INK}" stroke="none"/><circle cx="63" cy="38" r="2.4" fill="${INK}" stroke="none"/>
+  <path d="M36 64 q14 10 28 0" stroke-width="3"/>`);
+
+/* ---------- чудовище: глава + тяло + крака ---------- */
+const MCOL = ["#7E57C2","#4CAF6D","#F2A93B","#2E7CC4","#E8502F","#D86090","#F6D64A","#3CB4B4"];
+const eye = (x,y,r=6) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff"/><circle cx="${x+1}" cy="${y+1}" r="${r*.45}" fill="${INK}" stroke="none"/>`;
+const HEADS = [
+  c => `<circle cx="60" cy="34" r="26" fill="${c}"/>${eye(60,30,10)}<path d="M48 46 q12 8 24 0"/>`,
+  c => `<rect x="34" y="8" width="52" height="46" rx="8" fill="${c}"/>${eye(46,26)}${eye(60,22)}${eye(74,26)}<path d="M46 42 h28"/>`,
+  c => `<path d="M60 6 L90 54 H30 Z" fill="${c}"/><path d="M48 18 L40 2 M72 18 L80 2"/>${eye(52,38,5)}${eye(68,38,5)}<path d="M54 48 q6 4 12 0"/>`,
+  c => `<path d="M34 50 q-6 -22 10 -30 q6 -14 16 -6 q10 -8 16 6 q16 8 10 30 z" fill="${c}"/><path d="M40 22 l-8 -14 M80 22 l8 -14"/>${eye(50,34)}${eye(70,34)}<path d="M50 44 q10 6 20 0"/>`,
+  c => `<ellipse cx="60" cy="32" rx="30" ry="24" fill="${c}"/>${eye(48,26,5)}${eye(72,26,5)}
+        <path d="M42 40 q18 16 36 0 z" fill="#fff"/><path d="M48 41 v5 M54 43 v6 M60 44 v6 M66 43 v6 M72 41 v5" stroke-width="2"/>`,
+  c => `<circle cx="60" cy="34" r="24" fill="${c}"/><path d="M40 20 L36 2 L52 14 Z M80 20 L84 2 L68 14 Z" fill="${c}"/>${eye(51,32,5)}${eye(69,32,5)}
+        <path d="M57 41 h6 l-3 3 z" fill="#E77A92" stroke-width="1.6"/><path d="M38 42 h-12 M38 46 h-12 M82 42 h12 M82 46 h12" stroke-width="2"/>`
+];
+const BODIES = [
+  c => `<ellipse cx="60" cy="88" rx="30" ry="28" fill="${c}"/><circle cx="50" cy="82" r="5" fill="#fff" opacity=".7"/><circle cx="68" cy="94" r="6" fill="#fff" opacity=".7"/><circle cx="62" cy="76" r="3.5" fill="#fff" opacity=".7"/>`,
+  c => `<rect x="34" y="60" width="52" height="56" rx="10" fill="${c}"/><path d="M34 76 h52 M34 92 h52 M34 106 h52" stroke-width="2.4"/>`,
+  c => `<path d="M60 58 q-12 0 -16 20 q-14 10 -12 26 q4 12 28 12 q24 0 28 -12 q2 -16 -12 -26 q-4 -20 -16 -20 z" fill="${c}"/><path d="M52 98 q8 6 16 0" stroke-width="2.4"/>`,
+  c => `<rect x="36" y="60" width="48" height="54" rx="4" fill="${c}"/><rect x="46" y="70" width="28" height="18" rx="3" fill="#fff"/>
+        <circle cx="50" cy="102" r="4" fill="#E8502F"/><circle cx="62" cy="102" r="4" fill="#F6D64A"/><circle cx="74" cy="102" r="4" fill="#4CAF6D"/>`,
+  c => `<path d="M34 66 q6 -10 14 -4 q6 -8 12 0 q6 -8 12 0 q8 -6 14 4 q8 12 0 24 q8 12 -2 22 q-6 6 -14 2 q-6 6 -12 0 q-6 6 -12 0 q-8 4 -14 -2 q-10 -10 -2 -22 q-8 -12 0 -24 z" fill="${c}"/>`,
+  c => `<path d="M60 56 L90 116 H30 Z" fill="${c}"/><circle cx="60" cy="82" r="4" fill="#fff"/><circle cx="60" cy="98" r="4" fill="#fff"/>`
+];
+const LEGS = [
+  c => `<path d="M48 114 v22 M72 114 v22" stroke-width="5"/><ellipse cx="44" cy="140" rx="12" ry="6" fill="${c}"/><ellipse cx="76" cy="140" rx="12" ry="6" fill="${c}"/>`,
+  c => `<circle cx="44" cy="134" r="11" fill="#555"/><circle cx="44" cy="134" r="4" fill="#ddd"/><circle cx="76" cy="134" r="11" fill="#555"/><circle cx="76" cy="134" r="4" fill="#ddd"/>`,
+  c => [38,52,68,82].map((x,i)=>`<path d="M${x} 112 q${i%2?6:-6} 10 0 18 q${i%2?-6:6} 8 ${i%2?4:-4} 14" stroke="${c}" stroke-width="7"/>`).join(""),
+  c => `<path d="M60 114 l-10 5 l20 5 l-20 5 l20 5 l-10 5" stroke-width="3.4"/><ellipse cx="60" cy="144" rx="16" ry="5" fill="${c}"/>`,
+  c => `<path d="M46 114 v18 M60 114 v18 M74 114 v18" stroke-width="4"/><path d="M40 140 l6 -8 l6 8 M54 140 l6 -8 l6 8 M68 140 l6 -8 l6 8" stroke-width="3"/>`,
+  c => `<path d="M30 116 q30 30 60 0 q4 22 -30 24 q-34 -2 -30 -24 z" fill="${c}"/>`
+];
+const HN = ["Едноокото","Трите очи","Шапката-връх","Облачето с рога","Зъбатото","Котешките уши"];
+const BN = ["Коремче на точки","Райета","Крушката","Роботът","Пухчето","Пирамидата"];
+const LN = ["Големи обувки","Колелца","Пипала","Пружина","Птичи крачета","Охлювено краче"];
+const monster = (h,b,l,ch,cb,cl,vb="0 -4 120 152") =>
+  sv(LEGS[l](MCOL[cl]) + BODIES[b](MCOL[cb]) + HEADS[h](MCOL[ch]), vb);
+const part = (kind,i,c="#FFFFFF") => {
+  const f = kind==="h" ? HEADS : kind==="b" ? BODIES : LEGS;
+  const vb = kind==="h" ? "20 -2 80 62" : kind==="b" ? "20 52 80 70" : "20 108 80 42";
+  return sv(f[i](c), vb);
+};
+
+/* ---------- графична диктовка ---------- */
+/* "u2 r1" → ["u","u","r"]  ·  групи за показване: [{d:"u",n:2},…] */
+const moves = str => str.trim().split(/\s+/).flatMap(t => Array(+t.slice(1)).fill(t[0]));
+const groups = mv => mv.reduce((a,d)=>{ const l=a[a.length-1]; l&&l.d===d ? l.n++ : a.push({d,n:1}); return a },[]);
+const ARR = {u:"↑", d:"↓", l:"←", r:"→"};
+const DW  = {u:"нагоре", d:"надолу", l:"наляво", r:"надясно"};
+const NW  = ["","една","две","три","четири","пет","шест"];
+const sayStep = g => `${NW[g.n]||g.n} ${g.n===1?"клетка":"клетки"} ${DW[g.d]}`;
+const DICT = {
+  stairs:{n:"Стълбичка",  s:"u1 r1",       rep:6, W:9,  H:9,  x:1, y:8},
+  teeth: {n:"Зъбци",      s:"u2 r1 d2 r1", rep:5, W:11, H:6,  x:0, y:4},
+  comb:  {n:"Гребенче",   s:"u3 r1 d3 r1", rep:5, W:11, H:7,  x:0, y:5},
+  snake: {n:"Змийче",     s:"r2 u2 r2 d2", rep:3, W:13, H:6,  x:0, y:4},
+  wall:  {n:"Крепостна стена", s:"u1 r1 u1 r1 d1 r1 d1 r1", rep:3, W:13, H:6, x:0, y:4},
+  house: {n:"Къщичка",    s:"u4 l1 u1 r1 u1 r1 u1 r2 d1 r1 d1 r1 d1 l1 d4 l4", rep:1, W:9, H:11, x:2, y:10}
+};
+return {INK, sv, bunny, fish, starDot, SUNC, MOONC, ARROW, LIGHT, FROG,
+  HEADS, BODIES, LEGS, HN, BN, LN, MCOL, monster, part, moves, groups, ARR, sayStep, DICT};
+})();
+
+(function(){
+const {bunny, fish, starDot, SUNC, MOONC, ARROW, LIGHT, FROG, monster, moves, groups, ARR, sayStep, DICT} = SR;
+const say = (t,b) => (typeof sayBG==="function" ? sayBG(t,b) : false);
+const hasVoice = () => (typeof bgVoice==="function" && !!bgVoice());
+const SPKI = typeof SPK!=="undefined" ? SPK : "";
+/* в поредица mark() веднага минава нататък — тук детето първо чува/вижда отговора */
+const later = (id, ms) => { const st = stage(); if(!st || st.dataset.lt) return; st.dataset.lt = 1; setTimeout(() => { if(stage() && stage()===st) mark(id) }, ms) };
+const IMGK = k => (ART[k] ? ART[k]() : "");
+const pic = (k, w=96) => `<span class="srpic" style="width:${w}px">${IMGK(k)}</span>`;
+const ghost = (k, w=96) => `<span class="srpic gone" style="width:${w}px">${IMGK(k)}</span>`;
+
+/* =================== МЕХАНИКИ =================== */
+
+/* ---- графична диктовка: следвай стрелките клетка по клетка ---- */
+R.gdict = e => {
+  const D = DICT[e.dict], mv = [].concat(...Array(D.rep).fill(moves(D.s))), G = groups(mv);
+  const CS = 30, P = 14, ST0 = stage();
+  let k = 0;                                     /* колко хода са направени */
+  const pts = () => { const a=[[D.x,D.y]]; for(let i=0;i<k;i++){ const [x,y]=a[a.length-1], d=mv[i];
+      a.push([x+(d==="r")-(d==="l"), y+(d==="d")-(d==="u")]) } return a };
+  const gIdx = () => { let s=0; for(let i=0;i<G.length;i++){ s+=G[i].n; if(k<s) return i } return G.length };
+  const grid = () => {
+    const W=D.W*CS+2*P, H=D.H*CS+2*P, p=pts(), [cx,cy]=p[p.length-1];
+    let g = "";
+    for(let i=0;i<=D.W;i++) g+=`<line x1="${P+i*CS}" y1="${P}" x2="${P+i*CS}" y2="${P+D.H*CS}"/>`;
+    for(let j=0;j<=D.H;j++) g+=`<line x1="${P}" y1="${P+j*CS}" x2="${P+D.W*CS}" y2="${P+j*CS}"/>`;
+    return `<svg class="gdgrid" viewBox="0 0 ${W} ${H}" style="max-width:${Math.min(W*1.25,640)}px">
+      <g stroke="var(--grid)" stroke-width="1.4">${g}</g>
+      <polyline points="${p.map(([x,y])=>`${P+x*CS},${P+y*CS}`).join(" ")}" fill="none" stroke="var(--ink)"
+        stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="${P+D.x*CS}" cy="${P+D.y*CS}" r="7" fill="#E8502F"/>
+      ${k<mv.length?`<circle cx="${P+cx*CS}" cy="${P+cy*CS}" r="9" fill="none" stroke="#7E57C2" stroke-width="3"><animate attributeName="r" values="7;11;7" dur="1.4s" repeatCount="indefinite"/></circle>`:""}
+    </svg>`;
+  };
+  const draw = (shake) => {
+    const gi = gIdx(); let before = 0; for(let i=0;i<gi;i++) before+=G[i].n;
+    stage().innerHTML = `<div class="gdchips">${G.map((g,i)=>
+        `<span class="gdc ${i<gi?"d":""} ${i===gi?"c":""} ${i===gi&&shake?"shake":""}">${
+          Array.from({length:g.n},(_,j)=>`<i class="${i===gi&&j<k-before?"dn":""}">${ARR[g.d]}</i>`).join("")}</span>`).join("")}</div>
+      <div class="gdwrap">${grid()}</div>
+      ${k<mv.length ? `<div class="gdpad">
+        <span></span><button class="key" type="button" data-d="u" aria-label="нагоре">↑</button><span></span>
+        <button class="key" type="button" data-d="l" aria-label="наляво">←</button>
+        <button class="key gdsay" type="button" id="gdsay" title="Чуй указанието" ${hasVoice()?"":"disabled"}>${SPKI}</button>
+        <button class="key" type="button" data-d="r" aria-label="надясно">→</button>
+        <span></span><button class="key" type="button" data-d="d" aria-label="надолу">↓</button><span></span></div>`
+      : `<p class="srwin">${D.n}! Виж какво нарисува.</p>`}`;
+    stage().querySelectorAll(".gdpad [data-d]").forEach(b => b.onclick = () => step(b.dataset.d));
+    const sb = document.getElementById("gdsay"); if(sb) sb.onclick = () => say(sayStep(G[gIdx()]), sb);
+  };
+  const step = d => {
+    if(k>=mv.length) return;
+    if(d!==mv[k]){ fb(`Виж стрелката — сега е ${ARR[mv[k]]}.`,"no"); draw(true); return }
+    const gi0 = gIdx(); k++; fb("");
+    draw();
+    if(k===mv.length){ fb(`Браво! Нарисува „${D.n}“.`,"ok"); off(); later(e.id, 2000); return }
+    if(e.voice && gIdx()!==gi0) say(sayStep(G[gIdx()]));
+  };
+  const key = ev => { const m={ArrowUp:"u",ArrowDown:"d",ArrowLeft:"l",ArrowRight:"r"}[ev.key];
+    if(!m) return; if(stage()!==ST0){ off(); return } ev.preventDefault(); step(m) };
+  const off = () => removeEventListener("keydown", key);
+  addEventListener("keydown", key);
+  draw();
+  ctl([{t:"Отначало", g:1, fn:()=>{ k=0; fb(""); off(); addEventListener("keydown", key); draw() }}]);
+};
+
+/* ---- самоконтрол: обратното (ден–нощ) и „стой–върви“ (светофар) ---- */
+R.dn = e => {
+  const N = e.n || 12, ST = stage(), alive = () => stage()===ST;
+  let seq = [], i = 0, ok = 0, t = null, busy = false;
+  const make = () => { const a=[]; while(a.length<N){
+      const v = e.k==="go" ? (Math.random()<.65?"g":"s") : e.pair[Math.random()<.5?0:1];
+      if(a.length>=2 && a[a.length-1]===v && a[a.length-2]===v) continue; a.push(v) } return a };
+  const dots = () => `<div class="dots">${seq.map((_,j)=>`<span class="dot ${j<i?"d":""} ${j===i?"c":""}"></span>`).join("")}</div>`;
+  const card = v => e.k==="go" ? LIGHT(v==="g"?"green":"red") : e.cards[v]();
+  const intro = () => {
+    clearTimeout(t); i=0; ok=0; seq=make(); busy=false; fb("");
+    stage().innerHTML = `<div class="dnrule">${e.rule.map(([a,b])=>
+        `<span class="dnr"><span class="dnc">${a()}</span><span class="dnarr">→</span><span class="dnc">${b()}</span></span>`).join("")}</div>
+      <p class="memo-cap">${e.ruleText}</p>`;
+    ctl([{t:"Старт", fn:show}]);
+  };
+  const show = () => {
+    if(!alive()) return;
+    if(i>=N) return end();
+    busy = false;
+    const v = seq[i];
+    stage().innerHTML = dots() + `<div class="dnbig">${card(v)}</div>` +
+      (e.k==="go"
+        ? `<div class="row"><button class="item lg dnbtn" type="button" id="jump">${FROG()}<span class="lbl">Скок!</span></button></div>`
+        : `<div class="row">${e.btns.map(([k2,a])=>`<button class="item dnbtn" type="button" data-v="${k2}">${a()}</button>`).join("")}</div>`);
+    ctl([{t:"Отначало", g:1, fn:intro}]);
+    if(e.k==="go"){
+      document.getElementById("jump").onclick = () => answer(v==="g");
+      clearTimeout(t); t = setTimeout(() => { if(alive() && !busy) answer(v==="s", true) }, e.wait || 1800);
+    } else {
+      stage().querySelectorAll("[data-v]").forEach(b => b.onclick = () => answer(b.dataset.v===e.opp[v]));
+    }
+  };
+  const answer = (good, timeout) => {
+    if(busy) return; busy = true; clearTimeout(t);
+    if(good) ok++;
+    const msg = e.k==="go"
+      ? (good ? (timeout?"Точно! Стоя на червено.":"Скок!") : (timeout?"Зелено е — скачай!":"Червено — стой!"))
+      : (good ? "Точно!" : "Обратното!");
+    fb(msg, good?"ok":"no");
+    i++; t = setTimeout(show, good?450:900);
+  };
+  const end = () => {
+    stage().innerHTML = `<div class="dnbig" style="max-width:160px">${ART.star ? ART.star(C.yellow) : ""}</div>
+      <p class="srwin">${ok} от ${N}</p>`;
+    if(ok >= Math.ceil(N*.75)){ fb("Браво! Умееш да спираш и да мислиш.","ok"); mark(e.id) }
+    else fb("Добре! Опитай още веднъж — бавно и внимателно.","");
+    ctl([{t:"Още веднъж", fn:intro}]);
+  };
+  intro();
+};
+
+/* ---- история на картинки + въпрос „какво мисли героят“ ---- */
+R.tom = e => {
+  let n = 1;
+  const panels = () => `<div class="tomrow">${e.panels.slice(0,n).map((p,j)=>
+      `<figure class="tomp ${j===n-1?"cur":""}"><span class="ordnum">${j+1}</span><div class="tompic">${p.pic()}</div>
+        <figcaption>${p.cap}</figcaption></figure>`).join("")}</div>`;
+  const step = () => {
+    stage().innerHTML = panels();
+    if(n < e.panels.length){ ctl([{t:"Нататък", fn:()=>{ n++; step() }}]); return }
+    stage().innerHTML += `<p class="memo-q">${e.q}</p><div class="row">${e.opts.map((o,j)=>
+      `<button class="item" type="button" data-i="${j}">${o.a?o.a():""}<span class="lbl">${o.l}</span></button>`).join("")}</div>`;
+    stage().querySelectorAll("[data-i]").forEach(b => b.onclick = () => {
+      const o = e.opts[+b.dataset.i];
+      b.dataset.state = o.ok ? "ok" : "no";
+      fb(o.fb || (o.ok?"Точно!":"Помисли пак."), o.ok?"ok":"no");
+      if(o.ok){ say(o.fb||""); later(e.id, 3200) }
+    });
+    ctl([{t:"Отначало", g:1, fn:()=>{ n=1; fb(""); step() }}]);
+  };
+  step();
+};
+
+/* ---- „Какво ще направиш?“ — няколко добри отговора, всеки с обяснение ---- */
+R.social = e => {
+  const draw = () => {
+    stage().innerHTML = `<div class="row lead">${e.scene()}</div>
+      <p class="memo-q">${e.q}</p>
+      <div class="socopts">${e.opts.map((o,j)=>
+        `<button class="socopt" type="button" data-i="${j}"><span class="soci">${o.a?o.a():""}</span><span>${o.l}</span></button>`).join("")}</div>`;
+    stage().querySelectorAll("[data-i]").forEach(b => b.onclick = () => {
+      const o = e.opts[+b.dataset.i];
+      b.dataset.state = o.ok ? "ok" : "no";
+      fb(o.fb, o.ok?"ok":"no"); say(o.fb);
+      if(o.ok) later(e.id, 3200);
+    });
+  };
+  draw();
+  const read = () => say(e.q + ". " + e.opts.map((o,j)=>`${["Първо","Второ","Трето","Четвърто"][j]}: ${o.l}`).join(". "));
+  ctl([{t:"Прочети ми", g:1, fn:read}, {t:"Отначало", g:1, fn:()=>{ draw(); fb("") }}]);
+};
+
+/* ---- „Измисли чудовище“ — без грешен отговор ---- */
+R.monster = e => {
+  const rnd = n => Math.floor(Math.random()*n);
+  let s = {h:rnd(6), b:rnd(6), l:rnd(6), ch:rnd(8), cb:rnd(8), cl:rnd(8)};
+  const draw = () => {
+    stage().innerHTML = `<div class="monwrap">
+      <div class="monbig">${monster(s.h,s.b,s.l,s.ch,s.cb,s.cl)}</div>
+      <div class="monctl">${[["h","Глава","ch",SR.HN],["b","Тяло","cb",SR.BN],["l","Крака","cl",SR.LN]].map(([k,lbl,ck,names])=>
+        `<div class="monrow"><span class="monl">${lbl}</span>
+          <button class="key" type="button" data-k="${k}" data-s="-1" aria-label="${lbl} назад">‹</button>
+          <span class="monn">${names[s[k]]}</span>
+          <button class="key" type="button" data-k="${k}" data-s="1" aria-label="${lbl} напред">›</button>
+          <button class="sw monsw" type="button" data-c="${ck}" style="background:${SR.MCOL[s[ck]]}" aria-label="смени цвета"></button></div>`).join("")}
+      </div></div>
+      <ul class="storyq">${e.qs.map(q=>`<li>${q}</li>`).join("")}</ul>`;
+    stage().querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      const k=b.dataset.k; s[k]=(s[k]+ +b.dataset.s+6)%6; draw() });
+    stage().querySelectorAll("[data-c]").forEach(b => b.onclick = () => {
+      const k=b.dataset.c; s[k]=(s[k]+1)%8; draw() });
+  };
+  draw();
+  ctl([{t:"Разказах", fn:()=>{ fb("Какво чудовище! Нарисувай го и на хартия.","ok"); mark(e.id) }},
+       {t:"Изненадай ме", g:1, fn:()=>{ s={h:rnd(6),b:rnd(6),l:rnd(6),ch:rnd(8),cb:rnd(8),cl:rnd(8)}; draw(); fb("") }}]);
+};
+
+/* ---- „Какво още може да бъде?“ — броим идеите ---- */
+R.uses = e => {
+  let n = 0, hint = false;
+  const draw = () => {
+    stage().innerHTML = `<div class="row">${pic(e.obj,150)}</div>
+      <p class="memo-q">${e.q}</p>
+      <div class="usebulbs">${Array.from({length:Math.max(n,3)},(_,j)=>`<span class="bulb ${j<n?"on":""}">💡</span>`).join("")}</div>
+      <div class="row"><button class="btn bigplay" type="button" id="idea">Имам идея!</button></div>
+      ${hint?`<p class="hint" style="text-align:center">Например: ${e.ideas.join(" · ")}</p>`:""}`;
+    document.getElementById("idea").onclick = () => { n++;
+      if(n===3) fb("Три идеи! Можеш ли още?","ok"); else if(n>3) fb(`${n} идеи — истински изобретател!`,"ok");
+      else fb(n===1?"Чудесно! А още?":"Браво! Още една?");
+      draw() };
+  };
+  draw();
+  ctl([{t:"Готово", fn:()=>{ if(!n){ fb("Измисли поне една идея.","no"); return }
+           fb(`Измисли ${n} ${n===1?"идея":"идеи"}. Браво!`,"ok"); mark(e.id) }},
+       {t:"Подскажи", g:1, fn:()=>{ hint=true; draw() }}, {t:"Отначало", g:1, fn:()=>{ n=0; hint=false; fb(""); draw() }}]);
+};
+
+/* ---- памет за поредица: картинките идват една по една, всеки път с една повече ---- */
+R.span = e => {
+  let len = e.start || 2, best = 0, seq = [], got = 0, t = null;
+  const ST = stage(), alive = () => stage()===ST;
+  const pool = e.pool;
+  const play = () => {
+    clearTimeout(t); fb("");
+    seq = []; while(seq.length<len){ const k=pool[Math.floor(Math.random()*pool.length)]; if(!seq.includes(k)) seq.push(k) }
+    let j = 0;
+    const one = () => {
+      if(!alive()) return;
+      if(j>=seq.length){ stage().innerHTML = `<p class="memo-t">Сега ти!</p>`; t=setTimeout(ask, 500); return }
+      stage().innerHTML = `<p class="memo-t">Гледай и запомни · ${j+1} от ${seq.length}</p><div class="row"><span class="item lg look spanin">${IMGK(seq[j])}</span></div>`;
+      j++; t = setTimeout(one, e.ms || 1200);
+    };
+    ctl([]); one();
+  };
+  const ask = () => {
+    if(!alive()) return;
+    got = 0;
+    const opts = [...pool].sort(()=>Math.random()-.5);
+    stage().innerHTML = `<p class="memo-q">Докосни картинките в същия ред.</p>
+      <div class="row">${opts.map(k=>`<button class="item sm" type="button" data-k="${k}">${IMGK(k)}</button>`).join("")}</div>
+      <p class="memo-cap">Поредица от ${len} · най-добро досега: ${best}</p>`;
+    stage().querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      if(b.dataset.k===seq[got]){ b.dataset.state="ok"; b.disabled=true; got++;
+        if(got===seq.length){ best=Math.max(best,len);
+          fb(`Браво! Запомни ${len}.`,"ok");
+          if(len < (e.max||6)){ len++; t=setTimeout(()=>{ if(alive()) play() }, 1200) } else finishSpan() } }
+      else { b.dataset.state="no"; finishSpan() } });
+    ctl([{t:"Покажи пак", g:1, fn:play}]);
+  };
+  const finishSpan = () => {
+    clearTimeout(t);
+    stage().querySelectorAll("[data-k]").forEach(b => b.disabled = true);
+    if(best >= 3){ fb(`Запомни ${best} картинки подред! Браво.`,"ok"); mark(e.id) }
+    else fb(best ? `Запомни ${best}. Опитай пак — шепни имената наум.` : "Опитай пак — казвай имената наум.","");
+    ctl([{t:"Отначало", fn:()=>{ len=e.start||2; best=0; play() }}]);
+  };
+  stage().innerHTML = `<p class="memo-cap">Картинките ще се покажат една след друга. Запомни реда им.</p>`;
+  ctl([{t:"Старт", fn:play}]);
+};
+
+/* =================== ЗАДАЧИТЕ =================== */
+const S = LG.S;
+const gdIco = k => { const D = DICT[k], mv = [].concat(...Array(D.rep).fill(moves(D.s)));
+  let x = D.x, y = D.y; const p = [[x,y]];
+  mv.forEach(d => { x += (d==="r")-(d==="l"); y += (d==="d")-(d==="u"); p.push([x,y]) });
+  const xs = p.map(q=>q[0]), ys = p.map(q=>q[1]), x0 = Math.min(...xs)-.6, y0 = Math.min(...ys)-.6,
+        w = Math.max(...xs)-x0+.6, h = Math.max(...ys)-y0+.6, m = Math.max(w,h);
+  return `<svg viewBox="${x0-(m-w)/2} ${y0-(m-h)/2} ${m} ${m}"><polyline points="${p.map(q=>q.join(",")).join(" ")}" fill="none"
+    stroke="#7E57C2" stroke-width="${m/14}" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${D.x}" cy="${D.y}" r="${m/18}" fill="#E8502F"/></svg>` };
+const sr = (id, t, g, m, title, instr, o={}) => Object.assign(
+  {id, t, g, m, title, instr, hint:o.hint||"", src:S, note:o.note||"", age:o.age||"5–6", sr:1, nova:1}, o);
+
+/* --- рисунки върху канава: начало, което детето довършва --- */
+const pen = (ctx, f) => { ctx.save(); ctx.strokeStyle="#7E57C2"; ctx.lineWidth=10; ctx.lineCap="round"; ctx.lineJoin="round";
+  ctx.beginPath(); f(ctx); ctx.stroke(); ctx.restore() };
+const START = {
+  circle:  c => c.arc(400,300,110,0,Math.PI*2),
+  zigzag:  c => { c.moveTo(150,330); [[250,230],[350,330],[450,230],[550,330],[650,230]].forEach(([x,y])=>c.lineTo(x,y)) },
+  blob:    c => { c.moveTo(330,220); c.bezierCurveTo(430,150,560,250,500,330); c.bezierCurveTo(450,420,300,430,290,340); c.bezierCurveTo(280,290,300,250,330,220) },
+  triangle:c => { c.moveTo(400,170); c.lineTo(530,410); c.lineTo(270,410); c.closePath() },
+  lines:   c => { c.moveTo(330,170); c.lineTo(330,430); c.moveTo(470,170); c.lineTo(470,430) },
+  wave:    c => { c.moveTo(130,300); for(let i=0;i<4;i++) c.quadraticCurveTo(130+i*140+70, i%2?380:220, 130+(i+1)*140, 300) }
+};
+const doodle = (id, k, title, instr, hint) => sr(id,"draw","Таланти","Довърши рисунката",title,instr,
+  {hint, base: ctx => pen(ctx, START[k]), ico:()=>`<svg viewBox="100 120 600 360">${({
+     circle:'<circle cx="400" cy="300" r="110"/>',
+     zigzag:'<path d="M150 330 L250 230 L350 330 L450 230 L550 330 L650 230"/>',
+     blob:'<path d="M330 220 C430 150 560 250 500 330 C450 420 300 430 290 340 C280 290 300 250 330 220"/>',
+     triangle:'<path d="M400 170 L530 410 L270 410 Z"/>',
+     lines:'<path d="M330 170 V430 M470 170 V430"/>',
+     wave:'<path d="M130 300 Q200 220 270 300 Q340 380 410 300 Q480 220 550 300 Q620 380 690 300"/>'}[k])}</svg>`.replace("<svg ",`<svg fill="none" stroke="#7E57C2" stroke-width="16" stroke-linecap="round" `),
+   note:"Творческа задача без верен отговор. Попитайте детето какво е нарисувало и запишете думите му под рисунката — така се вижда и въображението, и речта."});
+
+const scene = (...xs) => `<span class="srscene">${xs.join("")}</span>`;
+const ar = `<span class="srarr">→</span>`;
+
+const NEW = [
+/* ---------- Слушай и следвай: графична диктовка ---------- */
+sr("sr-gd-stairs","gdict","Графомоторика","Графична диктовка","Стълбичката",
+ "Следвай стрелките: всяка стрелка е една клетка. Натискай същата стрелка отдолу.",
+ {dict:"stairs", hint:"Червената точка е началото.", ico:()=>gdIco("stairs"),
+  note:"Графичната диктовка упражнява слушане, следване на инструкция и ориентиране в лист с квадратчета — умения, нужни от първия ден в училище. Натиснете високоговорителя, за да чуете указанието на глас."}),
+sr("sr-gd-teeth","gdict","Графомоторика","Графична диктовка","Зъбци",
+ "Следвай стрелките една по една и нарисувай зъбците.", {dict:"teeth", ico:()=>gdIco("teeth")}),
+sr("sr-gd-comb","gdict","Графомоторика","Графична диктовка","Гребенчето",
+ "Следвай стрелките и нарисувай гребенче.", {dict:"comb", ico:()=>gdIco("comb")}),
+sr("sr-gd-snake","gdict","Графомоторика","Графична диктовка","Змийчето",
+ "Следвай стрелките и нарисувай змийче.", {dict:"snake", age:"6–7", ico:()=>gdIco("snake")}),
+sr("sr-gd-wall","gdict","Графомоторика","Графична диктовка","Крепостната стена",
+ "Следвай стрелките и нарисувай стената на замъка.", {dict:"wall", age:"6–7", ico:()=>gdIco("wall")}),
+sr("sr-gd-house","gdict","Графомоторика","Графична диктовка","Къщичката",
+ "Следвай стрелките до края. Какво ще се получи?", {dict:"house", age:"6–7", hint:"Не бързай — тук стрелките сменят посоката често.", ico:()=>gdIco("house")}),
+sr("sr-gd-voice","gdict","Слух","Графична диктовка","Диктовка на глас",
+ "Слушай указанието и натисни стрелката. Стрелките горе ти помагат.",
+ {dict:"teeth", voice:1, hint:"Натисни високоговорителя в средата, за да чуеш колко клетки и накъде.", ico:()=>gdIco("teeth"),
+  note:"Същата диктовка, но след всяка смяна на посоката указанието се казва на глас (ако устройството има български глас). Без глас водещият чете: „две клетки нагоре, една надясно…“."}),
+
+/* ---------- Самоконтрол ---------- */
+sr("sr-dn-daynight","dn","Концентрация","Самоконтрол","Ден и нощ",
+ "Когато видиш слънце — натисни луната. Когато видиш луна — натисни слънцето.",
+ {pair:["s","m"], opp:{s:"m",m:"s"}, cards:{s:SUNC,m:MOONC}, btns:[["s",SUNC],["m",MOONC]],
+  rule:[[SUNC,MOONC],[MOONC,SUNC]], ruleText:"Обратното! Слънце → луна, луна → слънце.", ico:MOONC,
+  note:"Игра за самоконтрол: детето трябва да спре първия импулс и да направи обратното. Същата игра се играе и без компютър — с две картончета и отговор на глас („ден“ за луната, „нощ“ за слънцето)."}),
+sr("sr-dn-light","dn","Концентрация","Самоконтрол","Светофарът на жабчето",
+ "Зелено — натисни жабчето, за да скочи. Червено — не натискай, чакай.",
+ {k:"go", wait:1900, rule:[[()=>LIGHT("green"),FROG],[()=>LIGHT("red"),()=>SR.sv('<path d="M30 30 L70 70 M70 30 L30 70" stroke="#E8502F" stroke-width="9"/>')]],
+  ruleText:"Зелено → скок. Червено → стой.", ico:()=>LIGHT("green"),
+  note:"Стой–върви: упражнява спирането на действие. Не наказвайте грешките — похвалете, когато детето успее да изчака на червено."}),
+sr("sr-dn-arrows","dn","Концентрация","Самоконтрол","Обърнатите стрелки",
+ "Когато стрелката сочи нагоре — натисни надолу. Когато сочи надолу — натисни нагоре.",
+ {pair:["u","d"], opp:{u:"d",d:"u"}, cards:{u:()=>ARROW("u"),d:()=>ARROW("d")}, btns:[["u",()=>ARROW("u")],["d",()=>ARROW("d")]],
+  rule:[[()=>ARROW("u"),()=>ARROW("d")],[()=>ARROW("d"),()=>ARROW("u")]], ruleText:"Обратното! Нагоре → надолу, надолу → нагоре.", age:"6–7", ico:()=>ARROW("d")}),
+
+/* ---------- Внимание: огради по правило ---------- */
+sr("sr-at-bunny","pickmany","Внимание","Огради по правило","Зайчетата с две вдигнати уши",
+ "Намери всички зайчета, които са вдигнали и двете си уши.",
+ {items:["uu","ud","uu","du","dd","uu","du","uu","ud","dd","uu","du"].map(s=>({a:()=>bunny(s[0],s[1]),l:""})),
+  correct:[0,2,5,7,10], hint:"Гледай внимателно всяко ухо.", ico:()=>bunny("u","u"),
+  note:"Задача за точно и подредено внимание: разликата е малка и се търси по правило. Има я и като печатен лист — „Огради зайчетата“."}),
+sr("sr-at-fish","pickmany","Внимание","Огради по правило","Рибките, които плуват надясно",
+ "Намери всички рибки, които плуват надясно →.",
+ {items:["r","l","l","r","r","l","r","l","r","l","l","r"].map(d=>({a:()=>fish(d),l:""})),
+  correct:[0,3,4,6,8,11], hint:"Надясно е там, накъдето сочи стрелката.", ico:()=>fish("r")}),
+sr("sr-at-star","pickmany","Внимание","Огради по правило","Звездичките с точка",
+ "Намери всички звездички, които имат точка в средата.",
+ {items:[1,0,1,1,0,0,1,0,1,0,0,1].map(d=>({a:()=>starDot(!!d),l:""})),
+  correct:[0,2,3,6,8,11], ico:()=>starDot(true), age:"4–5"}),
+
+/* ---------- Памет ---------- */
+sr("sr-mem-basket","span","Памет","Запомни реда","Кошницата на Маргаритка",
+ "Маргаритка слага неща в кошницата едно по едно. Запомни реда и го повтори.",
+ {pool:["apple","banana","pear","carrot","cherries","grapes","tomato","cheese"], start:2, max:6,
+  hint:"Казвай имената наум, докато гледаш.", ico:()=>IMGK("basket"),
+  note:"Колко картинки подред запомня детето. На 5–6 години обикновено са 3–4. Играта започва от 2 и всеки път добавя по една — винаги завършва с успех."}),
+sr("sr-mem-zoo","span","Памет","Запомни реда","Кой мина през моста",
+ "Животните минават през моста едно след друго. Запомни кой след кого мина.",
+ {pool:["cat","dog","rabbit","hen","cow","pig","sheep","frog"], start:2, max:6, ms:1100, ico:()=>IMGK("rabbit")}),
+
+/* ---------- Чувства и приятели ---------- */
+sr("sr-tom-ball","tom","Емоции","Какво мисли другият","Къде ще търси Ели?",
+ "Разгледай историята картинка по картинка.",
+ {panels:[
+   {pic:()=>scene(pic("eli",70),pic("ball",54),ar,pic("basket",90)), cap:"Ели слага топката в кошницата."},
+   {pic:()=>scene(ghost("eli",70),`<span class="srarr">⟶ навън</span>`,pic("basket",90)), cap:"Ели излиза да играе навън."},
+   {pic:()=>scene(pic("martin",70),pic("basket",72),ar,pic("ball",48),pic("cardbox",86)), cap:"Мартин мести топката в кутията."},
+   {pic:()=>scene(pic("eli",70),pic("basket",86),pic("cardbox",86)), cap:"Ели се връща и иска топката си."}],
+  q:"Къде ще потърси Ели топката най-напред?",
+  opts:[{a:()=>IMGK("basket"),l:"в кошницата",ok:1,fb:"Точно! Ели не видя, че Мартин премести топката. Тя мисли, че е там, където я остави."},
+        {a:()=>IMGK("cardbox"),l:"в кутията",fb:"Топката наистина е в кутията. Но видя ли Ели как Мартин я премести? Къде мисли тя, че е?"}],
+  ico:()=>IMGK("basket"),
+  note:"Задача за разбиране, че другите мислят различно от нас (дали знаят това, което ние знаем). Към 5 години повечето деца отговарят „в кошницата“. Питайте „Защо?“ — обяснението е по-важно от отговора."}),
+sr("sr-tom-gift","tom","Емоции","Какво мисли другият","Изненадата за мама",
+ "Разгледай историята картинка по картинка.",
+ {panels:[
+   {pic:()=>scene(pic("martin",70),pic("doll",60),ar,pic("cardbox",86)), cap:"Мартин и тате слагат кукла в кутия — подарък за мама."},
+   {pic:()=>scene(pic("cardbox",86),pic("mama",74)), cap:"Мама се прибира. Кутията е затворена."}],
+  q:"Знае ли мама какво има в кутията?",
+  opts:[{a:()=>FACE("happy"),l:"Да, знае",fb:"Ние знаем, защото видяхме. Но мама видя ли кога слагаха куклата?"},
+        {a:()=>FACE("surprise"),l:"Не, не знае",ok:1,fb:"Точно! Мама не е видяла — затова ще бъде изненада."}],
+  ico:()=>IMGK("cardbox")}),
+
+sr("sr-soc-toy","social","Емоции","Какво ще направиш","Взеха ми играчката",
+ "Едно дете взе колата, с която играеше.",
+ {scene:()=>scene(pic("martin",70),pic("toycar",70),FACE("sad")),
+  q:"Какво е добре да направиш?",
+  opts:[{a:()=>FACE("angry"),l:"Удрям го и си я вземам.",fb:"Разбираемо е да си ядосан. Но ударът боли. Как иначе да си върнеш колата?"},
+        {a:()=>FACE("calm"),l:"Казвам: „Моля те, върни ми я. Аз играех.“",ok:1,fb:"Браво! Казваш спокойно какво искаш."},
+        {a:()=>FACE("happy"),l:"Казвам на учителката.",ok:1,fb:"Добре! Когато не можеш сам, възрастният помага."},
+        {a:()=>FACE("sad"),l:"Сядам и плача в ъгъла.",fb:"Мъчно ти е — това е нормално. А какво можеш да кажеш на детето?"}],
+  ico:()=>IMGK("toycar"),
+  note:"Има повече от един добър отговор. Обсъдете и неудачните — какво би станало след тях. Целта е детето да назове чувството и да избере начин, който не наранява."}),
+sr("sr-soc-cry","social","Емоции","Какво ще направиш","Приятелят плаче",
+ "Твоят приятел седи сам и плаче.",
+ {scene:()=>scene(pic("eli",70),FACE("sad")),
+  q:"Какво можеш да направиш?",
+  opts:[{a:()=>FACE("happy"),l:"Смея се.",fb:"Как ще се почувства приятелят, ако се смеем? Какво би искал ти, ако плачеш?"},
+        {a:()=>FACE("calm"),l:"Питам го какво му е и сядам до него.",ok:1,fb:"Браво! Така приятелят разбира, че не е сам."},
+        {a:()=>FACE("surprise"),l:"Отивам да играя сам.",fb:"Може би приятелят има нужда от теб. Какво можеш да му кажеш?"},
+        {a:()=>FACE("happy"),l:"Давам му моята играчка.",ok:1,fb:"Мило! Понякога малкият жест помага."}],
+  ico:()=>FACE("sad")}),
+sr("sr-soc-join","social","Емоции","Какво ще направиш","Искам и аз да играя",
+ "Децата играят с топка, а ти искаш да играеш с тях.",
+ {scene:()=>scene(pic("martin",62),pic("ball",54),pic("eli",62)),
+  q:"Как е добре да постъпиш?",
+  opts:[{a:()=>FACE("angry"),l:"Вземам им топката.",fb:"Тогава играта спира и всички се сърдят. Как да влезеш в играта?"},
+        {a:()=>FACE("happy"),l:"Питам: „Може ли и аз да играя?“",ok:1,fb:"Браво! Попита учтиво."},
+        {a:()=>FACE("sad"),l:"Стоя настрани и се сърдя.",fb:"Децата може би не знаят, че искаш. Какво можеш да им кажеш?"}],
+  ico:()=>IMGK("ball")}),
+sr("sr-soc-cup","social","Емоции","Какво ще направиш","Счупената чаша",
+ "Без да искаш, събори чашата и тя се счупи.",
+ {scene:()=>scene(pic("glass",60),FACE("scared")),
+  q:"Какво е добре да направиш?",
+  opts:[{a:()=>FACE("scared"),l:"Скривам парчетата.",fb:"Парчетата може да порежат някого. Кой може да помогне?"},
+        {a:()=>FACE("calm"),l:"Казвам на мама и не пипам парчетата.",ok:1,fb:"Браво! Каза истината и опази ръцете си."},
+        {a:()=>FACE("angry"),l:"Казвам, че е бил братчето.",fb:"Тогава братчето ще е тъжно, а то не е виновно. Какво е по-добре?"}],
+  ico:()=>FACE("scared")}),
+sr("sr-soc-queue","social","Емоции","Какво ще направиш","Опашката за пързалката",
+ "Много деца чакат за пързалката.",
+ {scene:()=>scene(pic("eli",56),pic("martin",56),pic("baby",50)),
+  q:"Какво правиш?",
+  opts:[{a:()=>FACE("angry"),l:"Бутам се напред.",fb:"Някой може да падне. А другите чакат от по-рано."},
+        {a:()=>FACE("calm"),l:"Чакам реда си.",ok:1,fb:"Браво! Скоро идва и твоят ред."},
+        {a:()=>FACE("sad"),l:"Отказвам се и си тръгвам.",fb:"Не се отказвай — редът върви бързо!"}],
+  ico:()=>IMGK("martin")}),
+sr("sr-soc-laces","social","Емоции","Какво ще направиш","Не се получава",
+ "Опитваш се да вържеш връзките на обувките, но не се получава.",
+ {scene:()=>scene(pic("shoe",70),FACE("angry")),
+  q:"Какво можеш да направиш?",
+  opts:[{a:()=>FACE("angry"),l:"Хвърлям обувката.",fb:"Ядосан си — това е нормално. Но така обувката пак не е вързана."},
+        {a:()=>FACE("calm"),l:"Поемам дълбоко въздух и опитвам пак.",ok:1,fb:"Браво! Всеки опит те прави по-добър."},
+        {a:()=>FACE("happy"),l:"Казвам: „Помогни ми, моля.“",ok:1,fb:"Добре! Да поискаш помощ е умно."}],
+  ico:()=>IMGK("shoe"),
+  note:"Справяне с раздразнението при неуспех — важно за училище, където не всичко се получава от първия път."}),
+
+/* ---------- Измисли и нарисувай ---------- */
+sr("sr-cr-monster","monster","Таланти","Измисли","Измисли чудовище",
+ "Избери глава, тяло и крака. Измисли своето чудовище.",
+ {qs:["Как се казва?","Къде живее?","Какво обича да яде?","С какво помага на децата?"],
+  ico:()=>monster(0,0,1,0,1,3),
+  note:"Няма грешен отговор. Записвайте какво разказва детето — колко подробно и свързано говори. На хартия: лист „Измисли чудовище“."}),
+doodle("sr-cr-circle","circle","Какво може да стане от кръга","Довърши рисунката. Какво може да стане от кръга?","Слънце? Топка? Лице? Измисли нещо свое."),
+doodle("sr-cr-zigzag","zigzag","Какво може да стане от зигзага","Довърши рисунката. Какво може да стане от тази линия?","Планини? Зъби на крокодил?"),
+doodle("sr-cr-blob","blob","Какво може да стане от петното","Довърши рисунката. На какво прилича петното?","Обърни го наум — какво виждаш?"),
+doodle("sr-cr-triangle","triangle","Какво може да стане от триъгълника","Довърши рисунката. Какво може да стане от триъгълника?","Покрив? Ветроходка? Парче пица?"),
+doodle("sr-cr-lines","lines","Двете линии","Довърши рисунката. Какво може да стане от двете линии?","Стълба? Път? Две дървета?"),
+doodle("sr-cr-wave","wave","Вълничката","Довърши рисунката. Какво може да стане от вълничката?","Море? Змия? Въже?"),
+sr("sr-cr-person","draw","Таланти","Рисуване","Нарисувай човек",
+ "Нарисувай човек — цял, от главата до краката.",
+ {ico:()=>IMGK("martin"),
+  note:"Класическа задача преди училище. Гледайте не красотата, а колко части има (глава, тяло, ръце, крака, пръсти, очи, уста) и как детето държи молива. Само за наблюдение — не се оценява."}),
+sr("sr-cr-faces","draw","Емоции","Нарисувай чувството","Весело и тъжно",
+ "Нарисувай в левия кръг весело лице, а в десния — тъжно.",
+ {base: ctx => { ctx.save(); ctx.strokeStyle="#7E57C2"; ctx.lineWidth=8;
+    [[230,"весело"],[570,"тъжно"]].forEach(([x,w])=>{ ctx.beginPath(); ctx.arc(x,280,140,0,Math.PI*2); ctx.stroke();
+      ctx.fillStyle="#6F6659"; ctx.font="600 40px Commissioner, sans-serif"; ctx.textAlign="center"; ctx.fillText(w,x,500) });
+    ctx.restore() }, ico:()=>FACE("happy")}),
+sr("sr-cr-spoon","uses","Таланти","Какво още може да бъде","Вълшебната лъжица",
+ "За какво още може да служи една лъжица? Измисли колкото можеш повече.",
+ {obj:"spoon", q:"Всеки път, когато измислиш нещо, натисни „Имам идея!“.",
+  ideas:["огледалце","лопатка за пясък","барабанна палка","микрофон"], ico:()=>IMGK("spoon"),
+  note:"Задача за гъвкаво мислене: колкото повече и по-различни идеи, толкова по-добре. Не поправяйте — всяка идея е добра."}),
+sr("sr-cr-box","uses","Таланти","Какво още може да бъде","Кашонът",
+ "Какво можем да направим от един голям кашон?",
+ {obj:"cardbox", q:"Всеки път, когато измислиш нещо, натисни „Имам идея!“.",
+  ideas:["къщичка","кола","барабан","легло за мечето"], ico:()=>IMGK("cardbox")}),
+sr("sr-cr-umbrella","uses","Таланти","Какво още може да бъде","Чадърът",
+ "За какво още може да служи един чадър?",
+ {obj:"umbrella", q:"Всеки път, когато измислиш нещо, натисни „Имам идея!“.",
+  ideas:["палатка","лодка","кука за топка","парашут за играчка"], ico:()=>IMGK("umbrella")})
+];
+LG.add(NEW);
+
+/* съществуващи задачи, които влизат в раздела */
+const EXTRA = ["emo-today","emo-surprise","emo-match-lost","emo-match-gift","emo-odd","emo-many-sad"];
+const EXI = {"emo-match-lost":"sad","emo-match-gift":"happy","emo-surprise":"surprise","emo-many-sad":"sad","emo-odd":"happy"};
+EXTRA.forEach(id => { const e = EX.find(x => x.id===id); if(e){ e.sr = 1; if(EXI[id]) e.ico = () => FACE(EXI[id]) } });
+
+/* =================== ЕКРАН „ГОТОВ ЗА УЧИЛИЩЕ“ =================== */
+const GROUPS = [
+  {t:"Слушай и следвай", d:"Графична диктовка: стрелка по стрелка до картинка.", ids:NEW.filter(e=>e.t==="gdict").map(e=>e.id)},
+  {t:"Спри и помисли", d:"Направи обратното, изчакай на червено.", ids:NEW.filter(e=>e.t==="dn").map(e=>e.id)},
+  {t:"Гледай внимателно", d:"Намери всички по правило.", ids:["sr-at-bunny","sr-at-fish","sr-at-star"]},
+  {t:"Запомни", d:"Една картинка повече всеки път.", ids:["sr-mem-basket","sr-mem-zoo"]},
+  {t:"Чувства и приятели", d:"Как се чувства, какво мисли, какво ще направиш.",
+   ids:["sr-tom-ball","sr-tom-gift"].concat(NEW.filter(e=>e.t==="social").map(e=>e.id), EXTRA)},
+  {t:"Измисли и нарисувай", d:"Няма грешен отговор.", ids:NEW.filter(e=>e.g==="Таланти"||e.id==="sr-cr-faces").map(e=>e.id)}
+];
+const SR_SHEETS = ["sr-gdict","sr-bunny","sr-copy","sr-faces","sr-doodle","sr-ideas","sr-monster","sr-person","sr-guide"];
+
+const tileIco = e => e.ico ? e.ico() : e.t==="pick"||e.t==="pickmany"||e.t==="story" ? (e.items||e.pics||[])[0]?.a?.() || FACE("happy") : FACE("happy");
+
+window.gotovScreen = function gotovScreen(){
+  if(typeof leaveLanding==="function") leaveLanding();
+  MODE = "office"; run = null;
+  setHead("Готов за училище", "Игри за 5–6 години", false); whoChip();
+  try{ document.title = "Готов за училище · Мариполия" }catch(e){}
+  const d = screen(`<div class="srui">
+    <button class="back" type="button" id="srback">← ${me()?"Назад":"Към началото"}</button>
+    <p class="glead">Кратки игри за внимание, памет, самоконтрол, чувства и въображение — уменията,
+      с които детето влиза уверено в първи клас. Всяка игра е 2–5 минути.</p>
+    <div class="srtools">
+      <button class="btn" type="button" id="srseq">Пет игри подред</button>
+      <button class="btn ghost" type="button" id="srprint">Печатни листове</button>
+    </div>
+    ${GROUPS.map(g => `<section class="srgrp"><h3>${g.t}</h3><p class="mut">${g.d}</p>
+      <div class="srtiles">${g.ids.map(id => { const e = EX.find(x=>x.id===id); if(!e) return "";
+        return `<button class="srtile" type="button" data-id="${id}">
+          ${done[id]?'<span class="done">✓</span>':""}<span class="srti">${tileIco(e)}</span><span class="srtt">${e.title}</span></button>` }).join("")}</div></section>`).join("")}
+  </div>`);
+  d.querySelectorAll(".srtile").forEach(b => b.onclick = () => playOne(b.dataset.id));
+  document.getElementById("srback").onclick = () => { clearHash(); me() ? route() : landing() };
+  document.getElementById("srseq").onclick = () => {
+    const pickG = shuf(GROUPS).slice(0,5);
+    const ids = pickG.map(g => { const fresh = g.ids.filter(id => !done[id]); return shuf(fresh.length?fresh:g.ids)[0] });
+    startRun(ids); run.sr = true; setHead("Готов за училище", "Да поиграем!", false); addHome();
+  };
+  document.getElementById("srprint").onclick = () => {
+    sheetsScreen(1, SR_SHEETS);
+    const b = document.getElementById("wsback"); if(b) b.onclick = gotovScreen;
+  };
+};
+function addHome(){
+  const d = document.getElementById("detail"); if(!d || d.querySelector(".srhome")) return;
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "back srhome"; b.textContent = "← Към игрите";
+  b.onclick = () => { try{ speechSynthesis.cancel() }catch(e){} gotovScreen() };
+  d.insertBefore(b, d.firstChild);
+}
+function playOne(id){
+  startRun([id]); run.sr = true;
+  setHead("Готов за училище", "Да поиграем!", false);
+  addHome();
+}
+/* при поредица всяка следваща задача също получава бутона за връщане */
+const _openSR = open_;
+open_ = function(id){ _openSR(id); if(run && run.sr) addHome() };
+const _finishSR = finish;
+finish = function(){
+  if(run && run.sr){
+    const n = run.res.filter(v=>v>0).length, one = run.ids.length===1;
+    document.getElementById("detail").innerHTML = `<div class="done-screen">
+      <div class="stars">${[0,1,2].map(()=>ART.star(C.yellow)).join("")}</div>
+      <h2>Браво!</h2>
+      ${one?"":`<p class="instr" style="margin-inline:auto">Изигра ${n} от ${run.ids.length} игри.</p>`}
+      <div class="controls"><button class="btn" type="button" id="srnext">Към игрите</button></div></div>`;
+    document.getElementById("srnext").onclick = gotovScreen;
+    return;
+  }
+  _finishSR();
+};
+
+/* входове: начална страница, родител, логопед */
+const _landSR = landing;
+landing = function(){
+  _landSR();
+  const nav = document.querySelector("#landing .l-links");
+  if(nav && !nav.querySelector(".srlink")){
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "srlink"; b.textContent = "Готов за училище";
+    b.onclick = gotovScreen; nav.appendChild(b);
+  }
+  const sm = document.querySelector("#landing .l-small");
+  if(sm && !sm.parentNode.querySelector(".l-sr")){
+    const p = document.createElement("p"); p.className = "l-small l-sr";
+    p.innerHTML = `Детето тръгва на училище догодина? <button type="button">Игри „Готов за училище“ (5–6 г.)</button>`;
+    p.querySelector("button").onclick = gotovScreen; sm.after(p);
+  }
+};
+const _whoSR = whoPlays;
+whoPlays = function(){
+  _whoSR();
+  const d = document.getElementById("detail");
+  const p = document.createElement("p");
+  p.className = "alinks"; p.style.marginTop = "6px";
+  p.innerHTML = `<button type="button" class="lnk">Готов за училище (5–6 г.)</button>`;
+  p.querySelector("button").onclick = gotovScreen; d.appendChild(p);
+};
+const _mbSR = modebar;
+modebar = function(){
+  _mbSR();
+  const mb = document.querySelector("#modebar .mb");
+  if(mb && me() && me().role==="logoped" && !pickMode && !mb.querySelector("#srbtn")){
+    const b = document.createElement("button");
+    b.className = "btn sm ghost"; b.id = "srbtn"; b.type = "button"; b.textContent = "Готов за училище";
+    b.onclick = gotovScreen; mb.appendChild(b);
+  }
+};
+})();
+
+
 /* =========================== СТАРТ =========================== */
 addEventListener("hashchange",()=>location.reload());
 (async function boot(){
   /* линкът за домашно без вход работи както досега */
   const m=/#hw=([0-9a-z]+)/i.exec(location.hash);
   if(m){ const ids=decHW(m[1]); if(ids.length){ startRun(ids); return } }
+  const mz=/#hz=([0-9a-z]+)/i.exec(location.hash);
+  if(mz){ const ids=decHZ(mz[1]); if(ids.length){ startRun(ids); return } }
   await loadDB();
+  if(/#gotov/i.test(location.hash) && typeof gotovScreen==="function"){ gotovScreen(); return }
   const inv=/#invite=([0-9a-z]+)/i.exec(location.hash);
   if(inv){ authScreen("invite","",inv[1]); return }
   const rs=/#reset=([0-9a-z]+)/i.exec(location.hash);
