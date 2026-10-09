@@ -833,6 +833,45 @@ body.landing-on header, body.landing-on .wrap{display:none!important}
 @media (max-width:440px){ .wspaper{zoom:.34} }
 
 
+
+/* ============ БАНЕР НА ВЪТРЕШНИТЕ ЕКРАНИ ============ */
+header{position:relative;overflow:hidden;
+  background:
+   radial-gradient(120% 140% at 100% 0%,color-mix(in srgb,var(--sec,#F6D64A) 30%,transparent),transparent 62%),
+   repeating-linear-gradient(to right,var(--grid) 0 1px,transparent 1px 22px),
+   repeating-linear-gradient(to bottom,var(--grid) 0 1px,transparent 1px 22px),var(--surface)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:26px;pointer-events:none;
+  background:color-mix(in srgb,var(--sec,#F6D64A) 22%,var(--paper));
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'%3E%3Cpath d='M0 26V14C160 0 320 2 480 10s320 14 480 8 320-14 480-6v14z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'%3E%3Cpath d='M0 26V14C160 0 320 2 480 10s320 14 480 8 320-14 480-6v14z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.hin{position:relative;z-index:1;padding-block:18px 40px;min-height:150px}
+.hbar{flex:1 1 100%;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.hhome{display:inline-flex;align-items:center;gap:8px;font:700 17px "Nunito","Commissioner",sans-serif;
+  color:var(--ink);background:var(--surface);border:1.5px solid var(--rule);border-radius:999px;
+  padding:6px 16px 6px 8px;min-height:46px;cursor:pointer;box-shadow:0 2px 0 var(--rule)}
+.hhome img{width:30px;height:30px}
+.hhome:hover{border-color:var(--accent)}
+.hbar .who{margin-left:auto}
+@media (max-width:520px){.hbar{flex-wrap:wrap}.hbar .who{margin-left:0}}
+.hhome:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hart{margin-left:auto;display:flex;align-items:flex-end;gap:4px;height:118px;pointer-events:none;align-self:flex-end;margin-bottom:-30px}
+.hart img{height:100%;width:auto;display:block;filter:drop-shadow(0 3px 0 rgba(0,0,0,.06))}
+.hart img.s{height:58%}
+.hart img.xs{height:40%;align-self:center}
+.hart img:nth-child(1){animation:hbob 3.4s ease-in-out infinite}
+.hart img:nth-child(3){animation:hbob 3.9s ease-in-out -1.2s infinite}
+@keyframes hbob{50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.hart img{animation:none!important}}
+@media (max-width:640px){.hart{height:80px;margin-bottom:-34px}.hart img.xs{display:none}.hin{min-height:0}}
+@media (max-width:420px){.hart{height:64px}}
+@media (max-width:640px){.hin:has(#hstat:not([hidden])) .hart{display:none}}
+/* по-голям, видим бутон „Назад“ навсякъде */
+.back{font:600 16px "Commissioner",sans-serif;color:var(--ink);background:var(--surface);
+  border:1.5px solid var(--rule);border-radius:999px;padding:10px 20px 10px 14px;min-height:50px;
+  margin:20px 0 14px;display:inline-flex;gap:8px;align-items:center;box-shadow:0 2px 0 var(--rule)}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.back::first-letter{font-size:20px}
+
 /* ============ ГОТОВ ЗА УЧИЛИЩЕ ============ */
 .srui{max-width:980px;margin:0 auto}
 .srtools{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 8px}
@@ -11683,6 +11722,52 @@ modebar = function(){
 };
 })();
 
+
+
+/* =================== БАНЕР: картинки и цвят според екрана =================== */
+(function(){
+const SEC = [
+  [/готов за училище/i, "#4CAF6D", ["martin-up","backpack s","eli-up","pencil xs"]],
+  [/работни листове/i,  "#F2A93B", ["pencil s","eli-stand","book s","scissors xs"]],
+  [/днес за теб|да поиграем|домашна|проба/i, "#7E57C2", ["martin-running","kite s","eli-up","ball xs"]],
+  [/кабинет|логопед|администратор/i, "#2E7CC4", ["eli-stand","daisy s","martin-stand","book xs"]],
+  [/родител|профил|вход|регистрац|покана|парола/i, "#D86090", ["mama-stand","eli-stand","martin-stand s","daisy xs"]],
+  [/./, "#F6D64A", ["eli-stand","daisy s","martin-stand","sun xs"]]
+];
+const H = document.querySelector("header"), hin = document.querySelector(".hin");
+const bar = document.createElement("div"); bar.className = "hbar";
+bar.innerHTML = `<button class="hhome" type="button" id="hhome" aria-label="Към началото на Мариполия">
+  <img src="daisy.webp" alt="">Мариполия</button>`;
+hin.insertBefore(bar, hin.firstChild);
+const art = document.createElement("div"); art.className = "hart"; art.setAttribute("aria-hidden","true");
+hin.insertBefore(art, document.getElementById("hstat"));
+let last = "";
+const paint = () => {
+  const t = (document.getElementById("eyebrow").textContent + " " + document.getElementById("h1").textContent);
+  const [, col, imgs] = SEC.find(([re]) => re.test(t));
+  H.style.setProperty("--sec", col);
+  const key = imgs.join();
+  if(key !== last){ last = key;
+    art.innerHTML = imgs.map(x => { const [k,c] = x.split(" "); return `<img src="${k}.webp" alt="" class="${c||""}">` }).join("") }
+  /* по време на домашна или игра на детето водачът не излиза от нея случайно */
+  document.getElementById("hhome").hidden = !!(run && !run.sr);
+};
+document.getElementById("hhome").onclick = () => {
+  try{ speechSynthesis.cancel() }catch(e){}
+  if(run && !run.sr) return;
+  run = null; MODE = "office"; pickMode = false; chosen = [];
+  clearHash(); me() ? route() : landing();
+};
+const _whoChipB = whoChip;
+whoChip = function(kind, k){ _whoChipB(kind, k);
+  const w = document.getElementById("who"); if(w && w.parentNode !== bar) bar.appendChild(w) };
+const w0 = document.getElementById("who"); if(w0) bar.appendChild(w0);
+const _setHeadB = setHead;
+setHead = function(eb, h, stat){ _setHeadB(eb, h, stat); paint() };
+const _startRunB = startRun;
+startRun = function(ids){ _startRunB(ids); paint() };
+paint();
+})();
 
 /* =========================== СТАРТ =========================== */
 addEventListener("hashchange",()=>location.reload());
