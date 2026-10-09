@@ -844,6 +844,7 @@ header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:26p
   background:color-mix(in srgb,var(--sec,#F6D64A) 22%,var(--paper));
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'%3E%3Cpath d='M0 26V14C160 0 320 2 480 10s320 14 480 8 320-14 480-6v14z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
           mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'%3E%3Cpath d='M0 26V14C160 0 320 2 480 10s320 14 480 8 320-14 480-6v14z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+header.wsh::after{content:none!important;display:none!important}
 .hin{position:relative;z-index:1;padding-block:18px 40px;min-height:150px}
 .hbar{flex:1 1 100%;display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .hhome{display:inline-flex;align-items:center;gap:8px;font:700 17px "Nunito","Commissioner",sans-serif;
@@ -871,6 +872,27 @@ header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:26p
   margin:20px 0 14px;display:inline-flex;gap:8px;align-items:center;box-shadow:0 2px 0 var(--rule)}
 .back:hover{border-color:var(--accent);color:var(--accent)}
 .back::first-letter{font-size:20px}
+
+
+/* ============ ПОПЪЛНИ ТЕКСТА ============ */
+.czbank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;border:2px solid var(--ink);
+  border-radius:14px;padding:14px;margin-bottom:20px;background:var(--surface)}
+.czw{font:600 17px "Commissioner",sans-serif;padding:8px 14px;min-height:46px;border-radius:10px;
+  border:2px solid var(--rule);background:var(--surface-2);color:var(--text);cursor:pointer;touch-action:manipulation}
+.czw[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent);transform:translateY(-2px)}
+.czw[disabled]{opacity:.28;cursor:default}
+.czwrap{display:flex;gap:18px;align-items:flex-start}
+.czimg{flex:0 0 220px;order:2}
+.czimg img,.czimg svg{width:100%!important;max-width:220px!important;height:auto}
+.cztext{flex:1;margin:0;font:400 20px/2.15 "Commissioner",sans-serif;color:var(--text)}
+.czb{display:inline-block;min-width:110px;min-height:38px;padding:2px 12px;margin:0 3px;vertical-align:middle;
+  border:2px dashed var(--ink);border-radius:9px;background:var(--surface);font:600 18px "Commissioner",sans-serif;
+  color:var(--ink);cursor:pointer;line-height:1.6;touch-action:manipulation}
+.czb[data-state="sel"]{border-style:solid;border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.czb[data-state="ok"]{border-style:solid;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.czb[data-state="no"]{border-style:solid;border-color:var(--red);background:color-mix(in srgb,var(--red) 14%,transparent)}
+@media (max-width:600px){.czwrap{flex-direction:column}.czimg{order:0;align-self:center;flex-basis:auto;width:150px}
+  .cztext{font-size:18px}.czb{min-width:84px}}
 
 /* ============ ГОТОВ ЗА УЧИЛИЩЕ ============ */
 .srui{max-width:980px;margin:0 auto}
@@ -10458,6 +10480,19 @@ const SHEETS = [
       ${wline()}${wline()}</div>`).join("")};
 }}
 ,
+
+{k:"cloze", l:"Попълни текста", cls:[2,3], make(r,c){
+  const pool = window.CLOZE.filter(x => x.age === (c===2 ? "7–8" : "9–10"));
+  const T = pk(r, pool), P = window.clozeParse(T.text);
+  const words = sh(r, P.bank);
+  const body = P.parts.map(p => p.t!=null ? p.t
+    : `<span style="display:inline-block;min-width:42mm;border-bottom:1pt solid #000;height:9mm;vertical-align:bottom"></span>`).join("");
+  return {title:T.t, instr:"Прочети текста. Впиши всяка дума от рамката на мястото ѝ.",
+    lead:`<div style="border:1.2pt solid #000;border-radius:3mm;padding:5mm 6mm;display:flex;flex-wrap:wrap;gap:4mm 10mm;justify-content:center;font:600 17pt Commissioner,sans-serif">${words.map(w=>`<span>${w}</span>`).join("")}</div>`,
+    body:`<div style="text-align:center;margin:2mm 0 4mm"><span style="display:inline-block;width:62mm">${ART[T.img] ? ART[T.img]().replace(/loading="lazy"/g,'decoding="sync"').replace(/max-width:104px/,'max-width:62mm') : ""}</span></div>
+      <p style="font:400 17pt/2.6 Commissioner,sans-serif;margin:0">${body}</p>`,
+    foot:"Отговори: " + P.blanks.map(b => b.join(" или ")).join(" · ")};
+}},
 /* ---------- ГОТОВ ЗА УЧИЛИЩЕ: листове за 5–6 години ---------- */
 {k:"sr-gdict", l:"Графична диктовка", cls:[1], make(r,c){
   const D = window.SR.DICT, keys = sh(r,["teeth","comb","snake","wall"]).slice(0,2);
@@ -11017,6 +11052,156 @@ trialScreen = function(){ leaveLanding(); _lTrial();
 const _lRoute = route;
 route = function(){ leaveLanding(); _lRoute() };
 logout = function(){ USER=null; LS.sset("lg-user",null); run=null; MODE="office"; landing() };
+
+
+/* =================== ПОПЪЛНИ ТЕКСТА =================== */
+/* Кратък познавателен текст с празни места и думи за избор над него.
+   [дума] = празно място; [а/б] = на това място става всяка от двете думи
+   (например „светлина и топлина“ в произволен ред). */
+window.CLOZE = [
+/* ---------- 1.–2. клас ---------- */
+{id:"bee", t:"Пчелата", img:"bee", age:"7–8", text:
+"Пчелата е малко [насекомо]. Тя има шест [крака] и четири [крила]. Пчелите живеят заедно в [кошер]. Те събират [нектар] от цветята. От него правят сладък [мед]."},
+{id:"butterfly", t:"Пеперудата", img:"butterfly", age:"7–8", text:
+"Пеперудата снася малко [яйце]. От него излиза [гъсеница], която яде много [листа]. После гъсеницата се превръща в [какавида]. От нея излиза пеперуда с шарени [крила]."},
+{id:"frog", t:"Жабата", img:"frog", age:"7–8", text:
+"Жабата живее близо до [водата]. Тя има дълги задни [крака] и скача много [далеч]. С дългия си лепкав [език] хваща [мухи]. Малките на жабата се казват [попови лъжички]."},
+{id:"hedgehog", t:"Таралежът", img:"hedgehog", age:"7–8", text:
+"Таралежът има остри [бодли] по гърба си. Когато се уплаши, той се свива на [топка]. Таралежът търси храна [нощем]. Той яде [насекоми], червеи и охлюви. През зимата таралежът [спи] зимен сън."},
+{id:"squirrel", t:"Катерицата", img:"squirrel", age:"7–8", text:
+"Катерицата живее в [гората]. Тя има дълга пухкава [опашка]. Катерицата скача ловко по [клоните]. Тя обича [орехи] и жълъди. Наесен катерицата крие храна за [зимата]."},
+{id:"turtle", t:"Костенурката", img:"turtle", age:"7–8", text:
+"Костенурката има твърда [черупка]. Когато се уплаши, тя скрива [главата] си в нея. Костенурката ходи много [бавно]. Сухоземната костенурка яде [трева], листа и плодове. Тя снася [яйца] в пръстта."},
+{id:"snail", t:"Охлювът", img:"snail", age:"7–8", text:
+"Охлювът носи [къщичката] си на гърба. Той се движи много [бавно]. На главата си има четири [пипала]. На върха на двете по-дълги са [очите] му. Охлювите обичат влагата и излизат след [дъжд]."},
+{id:"ladybug", t:"Калинката", img:"ladybug", age:"7–8", text:
+"Калинката е малко червено [насекомо] с черни [точки]. Тя има шест [крака]. Под твърдите си крилца крие тънки [крила], с които лети. Калинката яде [листни въшки] и така помага на [градинаря]."},
+{id:"fox", t:"Лисицата", img:"fox", age:"7–8", text:
+"Лисицата има рижава [козина] и пухкава [опашка]. Тя живее в [дупка] в гората. Лисицата има много добър [слух]. Тя лови [мишки] и други малки животни. В приказките лисицата е [хитра]."},
+{id:"cow", t:"Кравата", img:"cow", age:"7–8", text:
+"Кравата е домашно [животно]. Тя живее в [обора]. През лятото кравата пасе зелена [трева]. Кравата ни дава [мляко]. От него правим [сирене/кашкавал] и [сирене/кашкавал]. Малкото на кравата се казва [теле]."},
+{id:"hen", t:"Кокошката", img:"hen", age:"7–8", text:
+"Кокошката живее в [кокошарника]. Тя кълве [зрънца] в двора. Кокошката снася [яйца]. От яйцата се излюпват малки [пиленца]. Рано сутрин петелът [кукурига]."},
+{id:"rain", t:"Откъде идва дъждът", img:"rainCloud", age:"7–8", text:
+"Слънцето топли водата в моретата и реките и тя се превръща в [пара]. Парата се издига нагоре и образува [облаци]. Когато облаците натежат, пада [дъжд]. През зимата вместо дъжд вали [сняг]. Водата от дъжда стига отново до [реките] и моретата."},
+{id:"snowflake", t:"Снежинката", img:"snowflake", age:"7–8", text:
+"Снежинките са малки [кристалчета] лед. Всяка снежинка има [шест] лъча. Няма две [еднакви] снежинки. Когато стане топло, снежинката се [топи] и става [вода]."},
+{id:"tree", t:"Дървото", img:"tree", age:"7–8", text:
+"Дървото пие вода от земята с [корените] си. Здравият [ствол] го държи изправено. По [клоните] растат зелени [листа]. Наесен листата на много дървета [пожълтяват] и падат."},
+{id:"apple", t:"Ябълката", img:"apple", age:"7–8", text:
+"Ябълката расте на [дърво]. Напролет ябълковото дърво [цъфти]. От цветовете се появяват малки [плодчета]. Ябълките узряват през [есента]. Те могат да са червени, жълти или [зелени]. Вътре в ябълката има малки [семки]."},
+{id:"autumn", t:"Есента", img:"leaf", age:"7–8", text:
+"Есента идва след [лятото]. Листата на дърветата [пожълтяват] и падат. Много птици отлитат на [юг]. Децата тръгват на [училище]. Дните стават по-къси, а нощите – по-[дълги]."},
+{id:"winter", t:"Зимата", img:"snowman", age:"7–8", text:
+"Зимата е най-студеният [сезон]. Вали [сняг] и водата в езерата замръзва. Децата правят [снежен човек] и се пързалят с [шейна]. Обличаме топли [дрехи]: шапка, шал и ръкавици."},
+{id:"martenitsa", t:"Мартеницата", img:"martenitsa", age:"7–8", text:
+"На първи [март] си подаряваме мартеници. Мартеницата е изплетена от [бели/червени] и [бели/червени] конци. Носим я за [здраве] и късмет. Когато видим [щъркел] или цъфнало дърво, я закачаме на [клонче]."},
+{id:"christmas", t:"Коледа", img:"christmasTree", age:"7–8", text:
+"Коледа е на двадесет и пети [декември]. Преди празника украсяваме [елхата] с играчки и светлинки. На Бъдни вечер семейството сяда около празничната [трапеза]. Коледарите обикалят домовете и [пеят]. Под елхата децата намират [подаръци]."},
+{id:"easter", t:"Великден", img:"easterEgg", age:"7–8", text:
+"На Великден боядисваме [яйца]. Първото яйце се боядисва в [червено]. Месим и печем сладък [козунак]. На празника се чукаме с яйцата и казваме „Христос [воскресе]!“."},
+{id:"train", t:"Влакът", img:"train", age:"7–8", text:
+"Влакът се движи по [релсите]. Той има много [вагони]. Хората чакат влака на [гарата]. Преди да се качат, купуват [билет]. Влакът се управлява от [машинист]."},
+{id:"bicycle", t:"Велосипедът", img:"bicycle", age:"7–8", text:
+"Велосипедът има две [колела]. Караме го, като въртим [педалите]. С [кормилото] избираме посоката. За да спрем, натискаме [спирачката]. Когато караме, винаги слагаме [каска]."},
+{id:"teeth", t:"Чисти зъби", img:"brushPaste", age:"7–8", text:
+"Мием зъбите си два пъти на [ден]: сутрин и [вечер]. Слагаме малко [паста] върху [четката]. Мием зъбите поне две [минути]. Накрая изплакваме устата с [вода]. Не ядем много [бонбони], за да са здрави зъбите ни."},
+
+/* ---------- 3.–4. клас ---------- */
+{id:"octopus", t:"Октоподът", img:"octopus", age:"9–10", text:
+"Октоподът е морско [мекотело] без кости. Той има осем дълги [пипала], покрити с [вендузи]. Октоподът има голям [мозък] и е много умен. Той може да сменя [цвета] на кожата си. Когато е в опасност, изпуска облак от [мастило]. Октоподът се храни с [раци/миди] и [раци/миди]."},
+{id:"whale", t:"Китът", img:"whale", age:"9–10", text:
+"Синият кит е най-голямото [животно] на Земята. Той живее в [океана], но не е риба, а [бозайник]. Китът диша с [бели дробове] и излиза на повърхността за [въздух]. Малкото на кита пие [мляко] от майка си."},
+{id:"shark", t:"Акулата", img:"shark", age:"9–10", text:
+"Акулата е голяма [риба], която живее в [морето]. Тя има много редове остри [зъби]. Когато ѝ падне зъб, на мястото му израства [нов]. Акулата има отлично [обоняние]. Тя е [хищник] и се храни с риби."},
+{id:"stork", t:"Щъркелът", img:"stork", age:"9–10", text:
+"Щъркелът е голяма [птица] с дълги червени [крака] и дълъг червен [клюн]. Щъркелите се връщат при нас през [пролетта]. Те правят гнездата си високо – на покриви и [комини]. Щъркелът се храни с [жаби], риби и насекоми. Наесен щъркелите отлитат на юг, към [Африка]."},
+{id:"elephant", t:"Слонът", img:"elephant", age:"9–10", text:
+"Слонът е най-голямото сухоземно [животно]. Той има дълъг [хобот], с който взима храна и пие [вода]. Двата дълги зъба на слона се наричат [бивни]. Слонът маха с големите си [уши], за да се разхлади. Слоновете живеят в [Африка/Азия] и [Африка/Азия]."},
+{id:"camel", t:"Камилата", img:"camel", age:"9–10", text:
+"Камилата живее в [пустинята]. Тя може да издържи много дни без [вода]. На гърба си има една или две [гърбици]. В тях камилата пази [мазнина] като запас от храна. Дългите ѝ [мигли] пазят очите от [пясъка]."},
+{id:"wolf", t:"Вълкът", img:"wolf", age:"9–10", text:
+"Вълкът е [хищник] и живее в гората и [планината]. Вълците живеят на групи, наречени [глутници]. Те ловуват [заедно]. Вълкът има остър [слух] и много добро [обоняние]. Нощем вълците [вият]."},
+{id:"sun", t:"Слънцето", img:"sun", age:"9–10", text:
+"Слънцето е [звезда]. То е много по-голямо от [Земята]. Слънцето ни дава [светлина/топлина] и [светлина/топлина]. Без него растенията не могат да [растат]. Земята обикаля около Слънцето за една [година]. Никога не гледайте направо към [Слънцето]!"},
+{id:"bread", t:"Хлябът", img:"bread", age:"9–10", text:
+"Хлябът се прави от [брашно]. Брашното се получава, когато се смели [житото]. Житото расте на [нивата]. Хлебарят замесва [тесто] с вода, сол и [мая]. После хлябът се пече във [фурната]."},
+{id:"honey", t:"Медът", img:"honey", age:"9–10", text:
+"Пчелите летят от цвят на цвят и събират сладък [нектар]. Те го носят в [кошера]. Там пчелите го превръщат в [мед] и го пазят във восъчни [килийки]. Човекът, който гледа пчели, се нарича [пчелар]."},
+{id:"plane", t:"Самолетът", img:"plane", age:"9–10", text:
+"Самолетът лети високо над [облаците]. Той излита и каца на [летището]. Самолетът има две големи [крила] и мощни [двигатели]. Той се управлява от [пилот]. За пътниците по време на полета се грижи [екипажът]."}
+];
+
+/* разбор: текст → части; всяко празно място знае кои думи приема */
+window.clozeParse = text => {
+  const parts = [], blanks = [];
+  text.split(/(\[[^\]]+\])/).forEach(p => {
+    const m = /^\[([^\]]+)\]$/.exec(p);
+    if(m){ const ok = m[1].split("/"); blanks.push(ok); parts.push({b: blanks.length-1}) }
+    else if(p) parts.push({t: p});
+  });
+  /* думите за избор: всяка група „а/б“ дава по една дума на място, без повторения */
+  const bank = [], used = {};
+  blanks.forEach(ok => {
+    const key = ok.join("/");
+    if(ok.length === 1) bank.push(ok[0]);
+    else { used[key] = (used[key]||0); bank.push(ok[used[key]]); used[key]++ }
+  });
+  return {parts, blanks, bank};
+};
+
+(function(){
+const shuf2 = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j=0|Math.random()*(i+1); [a[i],a[j]]=[a[j],a[i]] } return a };
+
+R.cloze = e => {
+  const P = clozeParse(e.text);
+  let bank = shuf2(P.bank.map((w,i) => ({w, i})));     /* i = номер на картончето */
+  let fill = P.blanks.map(() => null);                  /* номер на картончето във всяко място */
+  let pick = null, slot = null, checked = false;
+  const draw = () => {
+    const usedIds = new Set(fill.filter(x => x!==null));
+    stage().innerHTML = `<div class="czbank">${bank.map(c =>
+        `<button type="button" class="czw" data-c="${c.i}" ${usedIds.has(c.i)?"disabled":""}
+          aria-pressed="${pick===c.i}">${c.w}</button>`).join("")}</div>
+      <div class="czwrap"><div class="czimg">${ART[e.img] ? ART[e.img]() : ""}</div>
+      <p class="cztext">${P.parts.map(p => p.t!=null ? p.t.replace(/\n/g,"<br>") : (() => {
+        const c = fill[p.b], w = c===null ? "" : P.bank[c];
+        const st = checked && c!==null ? (P.blanks[p.b].includes(w) ? "ok" : "no") : (slot===p.b ? "sel" : "");
+        return `<button type="button" class="czb" data-b="${p.b}" data-state="${st}"
+          aria-label="празно място ${p.b+1}">${w || "&nbsp;"}</button>` })()).join("")}</p></div>`;
+    stage().querySelectorAll(".czw").forEach(n => n.onclick = () => {
+      const c = +n.dataset.c;
+      if(slot!==null && fill[slot]===null){ fill[slot] = c; slot = null; pick = null; after(); return }
+      pick = pick===c ? null : c; draw() });
+    stage().querySelectorAll(".czb").forEach(n => n.onclick = () => {
+      const b = +n.dataset.b;
+      if(fill[b]!==null){ fill[b] = null; checked = false; slot = b; pick = null; fb(""); draw(); return }
+      if(pick!==null){ fill[b] = pick; pick = null; slot = null; after(); return }
+      slot = slot===b ? null : b; draw() });
+  };
+  const after = () => { checked = false; fb(""); draw();
+    if(fill.every(x => x!==null)) fb("Всички места са попълнени. Натисни „Провери“.") };
+  const check = () => {
+    if(fill.some(x => x===null)){ fb("Попълни всички празни места.","no"); return }
+    checked = true; draw();
+    const bad = fill.filter((c,b) => !P.blanks[b].includes(P.bank[c])).length;
+    if(!bad){ fb("Браво! Всичко е вярно.","ok"); mark(e.id) }
+    else fb(bad===1 ? "Една дума не е на мястото си. Докосни я, за да я върнеш." : `${bad} думи не са на мястото си. Докосни ги, за да ги върнеш.`,"no");
+  };
+  const read = () => { if(typeof sayBG==="function")
+    sayBG(P.parts.map(p => p.t!=null ? p.t : (fill[p.b]!==null ? P.bank[fill[p.b]] : "...")).join("")) };
+  draw();
+  ctl([{t:"Провери", fn:check}, {t:"Прочети ми", g:1, fn:read},
+       {t:"Отначало", g:1, fn:()=>{ bank = shuf2(bank); fill = fill.map(()=>null); pick = slot = null; checked = false; fb(""); draw() }}]);
+};
+
+LG.add(CLOZE.map(c => ({
+  id:"cz-"+c.id, t:"cloze", g:"Език", m:"Попълни текста", title:c.t,
+  instr:"Прочети текста. Сложи всяка дума на мястото ѝ: докосни думата, после празното място.",
+  hint:"", src:LG.S, age:c.age, nova:1, text:c.text, img:c.img,
+  note:"Четене с разбиране и речник по тема. Нека детето прочете на глас целия текст, след като го попълни, и разкаже с думи какво е научило."
+})));
+})();
 
 /* =================== ГОТОВ ЗА УЧИЛИЩЕ (5–6 години) ===================
    Игри по принципите на задачите за училищна готовност: графична
